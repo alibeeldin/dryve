@@ -1,0 +1,350 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* Seductive Red Club Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(220, 38, 38, 0.9) 0%, 
+    rgba(239, 68, 68, 0.8) 25%, 
+    rgba(251, 146, 60, 0.7) 75%, 
+    rgba(252, 211, 77, 0.6) 100%
+  );
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(220, 38, 38, 1) 0%, 
+    rgba(239, 68, 68, 1) 25%, 
+    rgba(251, 146, 60, 0.9) 75%, 
+    rgba(252, 211, 77, 0.8) 100%
+  );
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.7), 0 0 35px rgba(239, 68, 68, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, 
+    rgba(185, 28, 28, 1) 0%, 
+    rgba(220, 38, 38, 1) 25%, 
+    rgba(239, 68, 68, 1) 75%, 
+    rgba(251, 146, 60, 0.9) 100%
+  );
+  transform: scale(0.95);
+}
+
+/* Firefox Scrollbar - Seductive Red Theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(220, 38, 38, 0.9) rgba(0, 0, 0, 0.9);
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for modal content */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(220, 38, 38, 0.1);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    rgba(220, 38, 38, 0.8) 0%, 
+    rgba(239, 68, 68, 0.8) 100%
+  );
+  border-radius: 10px;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    rgba(220, 38, 38, 1) 0%, 
+    rgba(239, 68, 68, 1) 100%
+  );
+}
+
+/* Scrollbar animations - Seductive Red Glow */
+@keyframes seductiveScrollbarGlow {
+  0% { box-shadow: 0 0 10px rgba(220, 38, 38, 0.4); }
+  25% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(220, 38, 38, 0.8); }
+  75% { box-shadow: 0 0 20px rgba(251, 146, 60, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(220, 38, 38, 0.4); }
+}
+
+::-webkit-scrollbar-thumb:hover {
+  animation: seductiveScrollbarGlow 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for specific elements if needed */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for horizontal scroll - Seductive Red Theme */
+::-webkit-scrollbar:horizontal {
+  height: 16px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(90deg, 
+    rgba(220, 38, 38, 0.9) 0%, 
+    rgba(239, 68, 68, 0.8) 25%, 
+    rgba(251, 146, 60, 0.7) 75%, 
+    rgba(252, 211, 77, 0.6) 100%
+  );
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: linear-gradient(90deg, 
+    rgba(220, 38, 38, 1) 0%, 
+    rgba(239, 68, 68, 1) 25%, 
+    rgba(251, 146, 60, 0.9) 75%, 
+    rgba(252, 211, 77, 0.8) 100%
+  );
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.8);
+}
+
+/* Seductive Red Club Aesthetic Styles */
+@keyframes seductivePulse {
+  0%, 100% { 
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.9), 0 0 40px rgba(239, 68, 68, 0.7);
+  }
+}
+
+.seductive-glow {
+  animation: seductivePulse 3s ease-in-out infinite;
+}
+
+/* Intense hover effects */
+.seductive-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Dark ambient effect */
+@keyframes darkSeductiveGlow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; }
+}
+
+.dark-seductive-effect {
+  animation: darkSeductiveGlow 4s ease-in-out infinite;
+}
+
+/* Seductive gradient text effects */
+.seductive-text {
+  background: linear-gradient(135deg, 
+    rgba(220, 38, 38, 1) 0%, 
+    rgba(239, 68, 68, 1) 25%, 
+    rgba(251, 146, 60, 1) 75%, 
+    rgba(252, 211, 77, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Seductive button hover states */
+.seductive-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.seductive-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.seductive-button:hover::before {
+  left: 100%;
+}
+
+/* Strobe-like effects for seductive club atmosphere */
+@keyframes seductiveStrobeEffect {
+  0%, 90%, 100% { opacity: 0.15; }
+  5%, 85% { opacity: 0.4; }
+  10%, 80% { opacity: 0.15; }
+  15%, 75% { opacity: 0.5; }
+  20%, 70% { opacity: 0.15; }
+}
+
+.seductive-strobe-effect {
+  animation: seductiveStrobeEffect 4s ease-in-out infinite;
+}
+
+/* Neon glow effects */
+.neon-red {
+  text-shadow: 0 0 8px rgba(220, 38, 38, 0.9), 0 0 15px rgba(220, 38, 38, 0.7), 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.neon-orange {
+  text-shadow: 0 0 8px rgba(251, 146, 60, 0.9), 0 0 15px rgba(251, 146, 60, 0.7), 0 0 20px rgba(251, 146, 60, 0.5);
+}
+
+/* Seductive club lighting effects */
+@keyframes seductiveClubLighting {
+  0% { 
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+    filter: hue-rotate(0deg);
+  }
+  25% { 
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.5);
+    filter: hue-rotate(15deg);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(251, 146, 60, 0.6);
+    filter: hue-rotate(30deg);
+  }
+  75% { 
+    box-shadow: 0 0 40px rgba(252, 211, 77, 0.5);
+    filter: hue-rotate(45deg);
+  }
+  100% { 
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.seductive-club-lighting {
+  animation: seductiveClubLighting 6s ease-in-out infinite;
+}
+
+/* Seductive club card effects */
+.seductive-club-card {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  transition: all 0.3s ease;
+}
+
+.seductive-club-card:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(220, 38, 38, 0.7);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Intense focus states for seductive club theme */
+.seductive-club-input:focus {
+  outline: none;
+  border-color: rgba(220, 38, 38, 0.9);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4), 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+/* Seductive club-style selection effects */
+.seductive-club-selected {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.4), rgba(239, 68, 68, 0.3));
+  border: 2px solid rgba(220, 38, 38, 0.9);
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.5);
+}
+
+/* Seductive club button animations */
+@keyframes seductiveButtonPulse {
+  0% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+  100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.seductive-button-pulse {
+  animation: seductiveButtonPulse 2s infinite;
+}
+
+/* Seductive club modal effects */
+.seductive-modal-backdrop {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+}
+
+.seductive-modal-content {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  box-shadow: 0 25px 50px rgba(220, 38, 38, 0.3);
+}
+
+/* Seductive club loading animations */
+@keyframes seductiveLoading {
+  0% { 
+    transform: rotate(0deg);
+    border-color: rgba(220, 38, 38, 1) transparent transparent transparent;
+  }
+  25% { 
+    border-color: rgba(239, 68, 68, 1) transparent transparent transparent;
+  }
+  50% { 
+    border-color: rgba(251, 146, 60, 1) transparent transparent transparent;
+  }
+  75% { 
+    border-color: rgba(252, 211, 77, 1) transparent transparent transparent;
+  }
+  100% { 
+    transform: rotate(360deg);
+    border-color: rgba(220, 38, 38, 1) transparent transparent transparent;
+  }
+}
+
+.seductive-loading {
+  animation: seductiveLoading 1.5s linear infinite;
+}
