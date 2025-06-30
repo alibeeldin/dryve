@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, MapPin, Clock, Users, Mail, Instagram, ExternalLink, Sparkles, Heart, Star, Globe, Flame, Zap, Music, PartyPopper, Crown } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, Mail, Instagram, ExternalLink, Sparkles, Heart, Star, Globe, Flame, Zap, Music, PartyPopper, Crown, ArrowRight, Play } from 'lucide-react';
 
 type Language = 'en' | 'fr';
 
@@ -31,6 +31,40 @@ const GliFioriLogo = ({ className }: { className?: string }) => (
     <path d="m254.68,342.8c-34.7-15.22-41.23-56.12-29.2-82.63-2.38,31.86,6.48,59.7,29.2,82.63Z"/>
     <path d="m346.58,362.67c15.42,6.74,31.19,11.78,48.32,12.03-4.58,3-14.21,2.47-26.59,2.11-6.71-.2-10-2.54-21.74-14.14Z"/>
   </svg>
+);
+
+// Animated Text Component
+const AnimatedText = ({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return (
+    <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+// Diagonal Stripe Pattern Component
+const DiagonalStripes = ({ className = "" }: { className?: string }) => (
+  <div className={`absolute inset-0 ${className}`}>
+    <div 
+      className="w-full h-full opacity-20"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          rgba(255,255,255,0.1) 20px,
+          rgba(255,255,255,0.1) 40px
+        )`
+      }}
+    />
+  </div>
 );
 
 interface Content {
@@ -209,9 +243,8 @@ function App() {
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      // Stop video 4 seconds before the end to avoid credits
       if (video.duration - video.currentTime <= 4) {
-        video.currentTime = 0; // Reset to beginning for smooth loop
+        video.currentTime = 0;
       }
     };
 
@@ -219,7 +252,6 @@ function App() {
     return () => video.removeEventListener('timeupdate', handleTimeUpdate);
   }, []);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (showTicketModal) {
       document.body.style.overflow = 'hidden';
@@ -246,57 +278,48 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Seductive Red Club Background Elements */}
+    <div className="min-h-screen bg-black text-white relative overflow-hidden font-inter">
+      {/* Background Effects */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/30 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black"></div>
         
-        {/* Red Club Lighting Effects */}
+        {/* Dynamic Background Patterns */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-orange-600/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-600/12 rounded-full blur-3xl animate-pulse delay-500"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-600/8 rounded-full blur-3xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-orange-600/8 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-600/6 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Interactive Mouse Glow - Red Colors */}
+        {/* Interactive Mouse Glow */}
         <div 
-          className="absolute w-96 h-96 rounded-full opacity-25 blur-3xl transition-all duration-1000 ease-out pointer-events-none"
+          className="absolute w-96 h-96 rounded-full opacity-15 blur-3xl transition-all duration-1000 ease-out pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(220,38,38,0.4) 0%, rgba(239,68,68,0.25) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(220,38,38,0.3) 0%, rgba(239,68,68,0.15) 50%, transparent 70%)',
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
           }}
         ></div>
-
-        {/* Subtle Strobe Effects */}
-        <div className="absolute inset-0 opacity-6">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent animate-pulse delay-300"></div>
-          <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-pink-500 to-transparent animate-pulse delay-700"></div>
-          <div className="absolute right-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-yellow-500 to-transparent animate-pulse delay-1000"></div>
-        </div>
       </div>
 
-      {/* Mobile Navbar Overlay */}
+      {/* Mobile Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50 md:hidden">
-        <div className="bg-black/95 backdrop-blur-xl border-b border-red-500/20">
-          <div className="flex items-center justify-between px-4 py-3">
+        <div className="bg-black/95 backdrop-blur-xl border-b border-white/10">
+          <div className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center p-1 shadow-lg shadow-red-500/30">
+              <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-orange-600 rounded-lg flex items-center justify-center p-1">
                 <GliFioriLogo className="w-full h-full text-white" />
               </div>
               <div className="text-white">
-                <div className="text-sm font-bold tracking-wider">GLI FIORI</div>
-                <div className="text-xs text-red-400 tracking-wide">EST. 2024</div>
+                <div className="text-sm font-black tracking-[0.2em] uppercase">GLI FIORI</div>
+                <div className="text-xs text-red-400 font-medium tracking-wider">EST. 2024</div>
               </div>
             </div>
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-2 bg-black/60 backdrop-blur-xl border border-red-500/30 rounded-full px-3 py-1.5 text-white hover:border-red-400/50 transition-all duration-300 group"
+              className="flex items-center space-x-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg px-3 py-2 text-white hover:border-white/20 transition-all duration-300 group"
             >
               <Globe className="h-3 w-3 text-red-400 group-hover:rotate-180 transition-transform duration-500" />
-              <span className="text-xs font-medium">{language.toUpperCase()}</span>
+              <span className="text-xs font-bold tracking-wider uppercase">{language}</span>
             </button>
           </div>
         </div>
@@ -304,171 +327,193 @@ function App() {
 
       {/* Desktop Navigation */}
       <div className="hidden md:block">
-        {/* Language Switcher */}
         <div className="fixed top-8 right-8 z-50">
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-2 bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-full px-4 py-2 text-white hover:border-red-400/50 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/20"
+            className="flex items-center space-x-3 bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl px-6 py-3 text-white hover:border-white/20 transition-all duration-300 group"
           >
             <Globe className="h-4 w-4 text-red-400 group-hover:rotate-180 transition-transform duration-500" />
-            <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            <span className="text-sm font-bold tracking-wider uppercase">{language}</span>
           </button>
         </div>
 
-        {/* Floating Logo */}
         <div className="fixed top-8 left-8 z-50">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center shadow-2xl shadow-red-500/30 p-1">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center shadow-2xl p-1">
               <GliFioriLogo className="w-full h-full text-white" />
             </div>
             <div className="text-white">
-              <div className="text-lg font-bold tracking-wider">GLI FIORI</div>
-              <div className="text-xs text-red-400 tracking-wide">EST. 2024</div>
+              <div className="text-lg font-black tracking-[0.2em] uppercase">GLI FIORI</div>
+              <div className="text-xs text-red-400 font-medium tracking-wider">EST. 2024</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Full-Screen Hero Section */}
+      {/* Hero Section */}
       <div className="min-h-screen flex items-center justify-center relative">
-        {/* Club Background Image - Full Screen */}
+        {/* Background Image with Modern Overlay */}
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: 'url(/image.jpg)',
-              filter: 'brightness(0.3) contrast(1.2) saturate(1.2) hue-rotate(-5deg)',
+              filter: 'brightness(0.25) contrast(1.3) saturate(1.1)',
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 via-transparent to-orange-900/15"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-orange-900/10"></div>
+          
+          {/* Diagonal Stripes Overlay */}
+          <DiagonalStripes />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 mt-16 md:mt-0">
-          <div className="mb-8">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-600/40 to-orange-600/30 backdrop-blur-sm border border-red-500/50 rounded-full px-6 py-2 mb-8 shadow-lg shadow-red-500/30">
-              <Flame className="h-4 w-4 text-red-400 animate-pulse" />
-              <span className="text-red-200 text-sm font-bold tracking-wide">{t.inauguralEvent}</span>
-              <Flame className="h-4 w-4 text-red-400 animate-pulse" />
+        <div className="relative z-10 text-center px-6 lg:px-8 mt-16 md:mt-0 max-w-6xl mx-auto">
+          <AnimatedText delay={200}>
+            <div className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-8 py-3 mb-12">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="text-white text-sm font-bold tracking-[0.3em] uppercase">{t.inauguralEvent}</span>
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
             </div>
-          </div>
+          </AnimatedText>
           
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black mb-8 leading-none">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-500 to-yellow-500 animate-pulse drop-shadow-2xl">
-              {t.summerParty}
-            </span>
-            <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-200 font-light tracking-widest mt-4">
-              {t.hostedBy}
-            </span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-light mb-16">
-            {t.heroDescription}
-          </p>
+          <AnimatedText delay={400}>
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-[0.85] tracking-tight">
+              <span className="block text-white drop-shadow-2xl">
+                {t.summerParty}
+              </span>
+            </h1>
+          </AnimatedText>
 
-          {/* Floating Event Date */}
-          <div className="relative inline-block">
-            <div className="bg-black/90 backdrop-blur-xl border border-red-500/50 rounded-2xl p-8 shadow-2xl shadow-red-500/30">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-2">AUG 1</div>
-              <div className="text-lg text-red-400 tracking-wider">2025</div>
+          <AnimatedText delay={600}>
+            <div className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light tracking-wide mb-4 underline decoration-red-500 decoration-2 underline-offset-8">
+              {t.hostedBy}
             </div>
-            <div className="absolute -top-3 -right-3 w-6 h-6 bg-red-500 rounded-full animate-ping shadow-lg shadow-red-500/60"></div>
-            <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-orange-500 rounded-full animate-pulse"></div>
-          </div>
+          </AnimatedText>
+          
+          <AnimatedText delay={800}>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-light mb-16">
+              {t.heroDescription}
+            </p>
+          </AnimatedText>
+
+          {/* Event Date - Modern Style */}
+          <AnimatedText delay={1000}>
+            <div className="relative inline-block">
+              <div className="bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl">
+                <div className="flex items-baseline space-x-2 justify-center">
+                  <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white">01</span>
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-300 uppercase tracking-wider">AUG</span>
+                </div>
+                <div className="text-lg text-red-400 tracking-[0.3em] uppercase font-bold mt-2">2025</div>
+                <div className="text-sm text-gray-400 font-medium mt-1 tracking-wider">
+                  <span className="font-bold text-white">10PM</span> - <span className="font-bold text-white">3AM</span>
+                </div>
+              </div>
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+            </div>
+          </AnimatedText>
         </div>
 
-        {/* Beautiful Section Transition Border */}
+        {/* Modern Section Divider */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
-          {/* Multi-layered gradient border */}
-          <div className="h-px bg-gradient-to-r from-transparent via-red-500/80 to-transparent"></div>
-          <div className="h-2 bg-gradient-to-r from-transparent via-red-500/40 to-transparent blur-sm"></div>
-          <div className="h-4 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-md"></div>
-          
-          {/* Animated glow effect */}
-          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-red-900/30 to-transparent animate-pulse"></div>
-          
-          {/* Decorative elements */}
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-4">
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500/60"></div>
-            <div className="w-1 h-1 bg-orange-500 rounded-full animate-pulse delay-200 shadow-lg shadow-orange-500/60"></div>
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse delay-400 shadow-lg shadow-red-500/60"></div>
-          </div>
-          
-          {/* Subtle pattern overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-6 opacity-30">
-            <div className="h-full bg-gradient-to-r from-transparent via-red-500/10 to-transparent" 
-                 style={{
-                   backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(220,38,38,0.1) 2px, rgba(220,38,38,0.1) 4px)',
-                 }}>
-            </div>
-          </div>
+          <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+          <div className="h-8 bg-gradient-to-t from-black/50 to-transparent"></div>
         </div>
       </div>
 
-      {/* Main Content Sections */}
+      {/* Main Content */}
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           
-          {/* Event Details Grid */}
+          {/* Event Details Grid - Modern Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-32">
-            <div className="bg-black/80 backdrop-blur-xl border border-red-500/40 rounded-2xl p-6 lg:p-8 text-center hover:border-red-500/70 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/30">
-              <Clock className="h-8 w-8 text-red-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="text-xl lg:text-2xl font-bold text-white mb-2">10PM - 3AM</div>
-              <div className="text-gray-400 text-sm">{t.fiveHours}</div>
-            </div>
-            
-            <div className="bg-black/80 backdrop-blur-xl border border-orange-500/40 rounded-2xl p-6 lg:p-8 text-center hover:border-orange-500/70 transition-all duration-300 group hover:shadow-lg hover:shadow-orange-500/30">
-              <MapPin className="h-8 w-8 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="text-xl lg:text-2xl font-bold text-white mb-2">{t.boulevardSaintLaurent}</div>
-              <div className="text-gray-400 text-sm">{t.exclusiveVenue}</div>
-            </div>
-            
-            <div className="bg-black/80 backdrop-blur-xl border border-pink-500/40 rounded-2xl p-6 lg:p-8 text-center hover:border-pink-500/70 transition-all duration-300 group hover:shadow-lg hover:shadow-pink-500/30">
-              <Users className="h-8 w-8 text-pink-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="text-xl lg:text-2xl font-bold text-white mb-2">🔥</div>
-              <div className="text-gray-400 text-sm">{t.limitedTickets}</div>
-            </div>
-            
-            <div className="bg-black/80 backdrop-blur-xl border border-red-500/40 rounded-2xl p-6 lg:p-8 text-center hover:border-red-500/70 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/30">
-              <div className="text-lg font-bold text-red-400 mx-auto mb-2 group-hover:scale-110 transition-transform flex items-center justify-center space-x-1">
-                <Zap className="h-5 w-5" />
-                <span>{t.pricing}</span>
-                <Zap className="h-5 w-5" />
+            <AnimatedText delay={200}>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+                <DiagonalStripes className="opacity-5 group-hover:opacity-10 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <Clock className="h-8 w-8 text-red-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-2xl lg:text-3xl font-black text-white mb-2 tracking-tight">
+                    <span className="font-black">10PM</span> - <span className="font-black">3AM</span>
+                  </div>
+                  <div className="text-gray-400 text-sm font-medium tracking-wider uppercase">{t.fiveHours}</div>
+                </div>
               </div>
-              <div className="text-sm font-bold text-white mb-1">{t.ladiesPrice}</div>
-              <div className="text-sm font-bold text-white">{t.menPrice}</div>
-            </div>
+            </AnimatedText>
+            
+            <AnimatedText delay={400}>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <MapPin className="h-8 w-8 text-orange-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-xl lg:text-2xl font-black text-white mb-2 tracking-tight">{t.boulevardSaintLaurent}</div>
+                  <div className="text-gray-400 text-sm font-medium tracking-wider uppercase underline decoration-orange-400 decoration-1 underline-offset-4">{t.exclusiveVenue}</div>
+                </div>
+              </div>
+            </AnimatedText>
+            
+            <AnimatedText delay={600}>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <Users className="h-8 w-8 text-pink-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-3xl lg:text-4xl font-black text-white mb-2">🔥</div>
+                  <div className="text-gray-400 text-sm font-medium tracking-wider uppercase">{t.limitedTickets}</div>
+                </div>
+              </div>
+            </AnimatedText>
+            
+            <AnimatedText delay={800}>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="text-lg font-black text-red-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center space-x-2 tracking-wider uppercase">
+                    <Zap className="h-5 w-5" />
+                    <span>{t.pricing}</span>
+                    <Zap className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-sm font-bold text-white tracking-wide">{t.ladiesPrice}</div>
+                    <div className="text-sm font-bold text-white tracking-wide">{t.menPrice}</div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedText>
           </div>
 
           {/* CTA Section */}
           <div className="text-center mb-32">
-            <div className="mb-12">
-              <div className="text-gray-300 text-lg mb-4">{t.whatsIncluded}</div>
-              <div className="flex flex-wrap justify-center gap-3 lg:gap-4 text-sm">
-                <span className="bg-red-600/30 backdrop-blur-sm px-4 py-2 rounded-full border border-red-500/40 text-red-200 hover:bg-red-600/40 transition-all duration-300">{t.welcomeCocktail}</span>
-                <span className="bg-orange-600/30 backdrop-blur-sm px-4 py-2 rounded-full border border-orange-500/40 text-orange-200 hover:bg-orange-600/40 transition-all duration-300">{t.premiumBar}</span>
-                <span className="bg-pink-600/30 backdrop-blur-sm px-4 py-2 rounded-full border border-pink-500/40 text-pink-200 hover:bg-pink-600/40 transition-all duration-300">{t.lightAppetizers}</span>
-                <span className="bg-yellow-600/30 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-500/40 text-yellow-200 hover:bg-yellow-600/40 transition-all duration-300">{t.liveEntertainment}</span>
+            <AnimatedText delay={200}>
+              <div className="mb-12">
+                <div className="text-gray-300 text-xl mb-6 font-medium tracking-wide">{t.whatsIncluded}</div>
+                <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+                  <span className="bg-red-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-red-500/30 text-red-200 hover:bg-red-600/30 transition-all duration-300 font-medium tracking-wide">{t.welcomeCocktail}</span>
+                  <span className="bg-orange-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 text-orange-200 hover:bg-orange-600/30 transition-all duration-300 font-medium tracking-wide">{t.premiumBar}</span>
+                  <span className="bg-pink-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-pink-500/30 text-pink-200 hover:bg-pink-600/30 transition-all duration-300 font-medium tracking-wide">{t.lightAppetizers}</span>
+                  <span className="bg-yellow-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-yellow-500/30 text-yellow-200 hover:bg-yellow-600/30 transition-all duration-300 font-medium tracking-wide">{t.liveEntertainment}</span>
+                </div>
               </div>
-            </div>
+            </AnimatedText>
             
-            <button 
-              onClick={() => setShowTicketModal(true)}
-              className="group relative bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 lg:px-10 py-3 lg:py-4 rounded-full font-bold text-base lg:text-lg hover:shadow-2xl hover:shadow-red-500/50 transform hover:scale-105 transition-all duration-300 border border-red-500/50"
-            >
-              <span className="relative z-10 flex items-center space-x-2">
-                <Flame className="h-5 w-5 animate-pulse" />
-                <span>{t.secureSpot}</span>
-                <Flame className="h-5 w-5 animate-pulse" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            <AnimatedText delay={400}>
+              <button 
+                onClick={() => setShowTicketModal(true)}
+                className="group relative bg-gradient-to-r from-red-600 to-orange-600 text-white px-12 lg:px-16 py-4 lg:py-5 rounded-xl font-black text-lg lg:text-xl hover:shadow-2xl hover:shadow-red-500/30 transform hover:scale-105 transition-all duration-300 border border-red-500/50 tracking-wider uppercase"
+              >
+                <span className="relative z-10 flex items-center space-x-3">
+                  <Flame className="h-6 w-6 animate-pulse" />
+                  <span>{t.secureSpot}</span>
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </AnimatedText>
           </div>
 
-          {/* About Section with Background Video */}
-          <div className="bg-gradient-to-r from-black/90 to-red-900/30 backdrop-blur-xl border border-red-500/40 rounded-3xl overflow-hidden mb-20 relative shadow-2xl shadow-red-500/20">
-            {/* Background Video with Better Visibility */}
+          {/* About Section with Video */}
+          <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden mb-20 relative">
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
               <video
                 ref={videoRef}
@@ -476,42 +521,32 @@ function App() {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover opacity-0 transition-opacity duration-2000 ease-in-out"
+                className="w-full h-full object-cover opacity-0 transition-opacity duration-2000"
                 style={{
-                  filter: 'grayscale(5%) contrast(1.2) brightness(0.45) saturate(1.1) hue-rotate(-10deg)',
-                  transform: 'scale(1.02)',
-                  animation: 'fadeInOut 1s ease-in-out forwards',
+                  filter: 'grayscale(10%) contrast(1.1) brightness(0.3) saturate(1.0)',
                 }}
                 onLoadedData={(e) => {
                   const video = e.target as HTMLVideoElement;
-                  video.style.opacity = '0.25';
-                }}
-                onEnded={(e) => {
-                  const video = e.target as HTMLVideoElement;
-                  video.style.opacity = '0';
-                  setTimeout(() => {
-                    video.currentTime = 0;
-                    video.play();
-                    video.style.opacity = '0.25';
-                  }, 500);
+                  video.style.opacity = '0.15';
                 }}
               >
                 <source src="/vid.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-red-900/30 to-black/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90"></div>
+              <DiagonalStripes className="opacity-5" />
             </div>
             
-            <div className="relative z-10 p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="relative z-10 p-8 lg:p-16">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center space-x-3">
-                    <span>{t.ourStory}</span>
+                  <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 tracking-tight flex items-center space-x-4">
+                    <span className="underline decoration-red-500 decoration-4 underline-offset-8">{t.ourStory}</span>
                     <Crown className="h-8 w-8 text-red-400 animate-pulse" />
                   </h2>
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-gray-300 leading-relaxed mb-8 text-lg font-light">
                     {t.aboutDescription1}
                   </p>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-lg font-light">
                     {t.aboutDescription2}
                   </p>
                 </div>
@@ -520,11 +555,11 @@ function App() {
                     href="https://www.instagram.com/gli_fiori/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-3 bg-red-600/30 backdrop-blur-sm border border-red-500/40 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full hover:bg-red-600/40 transition-all duration-300 group hover:shadow-lg hover:shadow-red-500/30"
+                    className="inline-flex items-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white px-8 lg:px-10 py-4 lg:py-5 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <Instagram className="h-6 w-6" />
                     <span>{t.visitStore}</span>
-                    <ExternalLink className="h-5 w-5 group-hover:rotate-45 transition-transform duration-300" />
+                    <ExternalLink className="h-6 w-6 group-hover:rotate-45 transition-transform duration-300" />
                   </a>
                 </div>
               </div>
@@ -534,60 +569,60 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-gradient-to-t from-black via-red-950/30 to-transparent">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-orange-900/15"></div>
+      <footer className="relative z-10 bg-gradient-to-t from-black via-black/95 to-transparent">
+        <div className="absolute inset-0">
+          <DiagonalStripes className="opacity-5" />
+        </div>
         
-        {/* Decorative top border */}
-        <div className="h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          {/* Main Footer Content */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20 mb-20">
             
             {/* Brand Section */}
             <div className="text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start space-x-4 mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center shadow-2xl shadow-red-500/40 p-2">
+              <div className="flex items-center justify-center lg:justify-start space-x-4 mb-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center shadow-2xl p-2">
                   <GliFioriLogo className="w-full h-full text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-wider">GLI FIORI</h3>
-                  <p className="text-red-400 text-sm font-medium tracking-wide">EST. 2024</p>
+                  <h3 className="text-3xl lg:text-4xl font-black text-white tracking-[0.2em] uppercase">GLI FIORI</h3>
+                  <p className="text-red-400 text-sm font-bold tracking-wider uppercase">EST. 2024</p>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <p className="text-gray-400 leading-relaxed mb-10 text-lg font-light">
                 {t.premiumExperiences}
               </p>
-              <div className="flex justify-center lg:justify-start space-x-6">
+              <div className="flex justify-center lg:justify-start space-x-8">
                 <div className="text-center">
-                  <div className="bg-red-600/30 backdrop-blur-sm border border-red-500/40 rounded-2xl p-4 mb-3 hover:bg-red-600/40 transition-all duration-300">
-                    <MapPin className="h-6 w-6 text-red-400 mx-auto" />
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300">
+                    <MapPin className="h-8 w-8 text-red-400 mx-auto" />
                   </div>
-                  <p className="text-white font-bold text-sm">{t.montreal}</p>
-                  <p className="text-gray-500 text-xs">QC, Canada</p>
+                  <p className="text-white font-black text-sm uppercase tracking-wider">{t.montreal}</p>
+                  <p className="text-gray-500 text-xs font-medium">QC, Canada</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-orange-600/30 backdrop-blur-sm border border-orange-500/40 rounded-2xl p-4 mb-3 hover:bg-orange-600/40 transition-all duration-300">
-                    <Calendar className="h-6 w-6 text-orange-400 mx-auto" />
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300">
+                    <Calendar className="h-8 w-8 text-orange-400 mx-auto" />
                   </div>
-                  <p className="text-white font-bold text-sm">{t.founded}</p>
-                  <p className="text-gray-500 text-xs">2024</p>
+                  <p className="text-white font-black text-sm uppercase tracking-wider">{t.founded}</p>
+                  <p className="text-gray-500 text-xs font-medium">2024</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Section */}
             <div className="text-center">
-              <h4 className="text-xl font-bold text-white mb-8 flex items-center justify-center space-x-2">
-                <Flame className="h-5 w-5 text-red-400 animate-pulse" />
-                <span>{t.followJourney}</span>
+              <h4 className="text-2xl font-black text-white mb-10 flex items-center justify-center space-x-3 tracking-wide uppercase">
+                <Flame className="h-6 w-6 text-red-400 animate-pulse" />
+                <span className="underline decoration-red-500 decoration-2 underline-offset-8">{t.followJourney}</span>
               </h4>
-              <div className="space-y-3 max-w-xs mx-auto">
+              <div className="space-y-4 max-w-sm mx-auto">
                 <a 
                   href="mailto:glifiori@hotmail.com" 
-                  className="group flex items-center justify-center space-x-3 bg-black/60 backdrop-blur-sm border border-red-500/40 rounded-xl p-3 hover:border-red-500/70 transition-all duration-300 text-sm hover:bg-red-600/20"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
                 >
-                  <Mail className="h-4 w-4 text-red-400 flex-shrink-0" />
+                  <Mail className="h-5 w-5 text-red-400 flex-shrink-0" />
                   <span className="text-white font-medium truncate">glifiori@hotmail.com</span>
                 </a>
                 
@@ -595,9 +630,9 @@ function App() {
                   href="https://www.instagram.com/gli_fiori/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group flex items-center justify-center space-x-3 bg-black/60 backdrop-blur-sm border border-orange-500/40 rounded-xl p-3 hover:border-orange-500/70 transition-all duration-300 text-sm hover:bg-orange-600/20"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
                 >
-                  <Instagram className="h-4 w-4 text-orange-400 flex-shrink-0" />
+                  <Instagram className="h-5 w-5 text-orange-400 flex-shrink-0" />
                   <span className="text-white font-medium">@gli_fiori</span>
                 </a>
 
@@ -605,9 +640,9 @@ function App() {
                   href="https://www.tiktok.com/@gli_fiori" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group flex items-center justify-center space-x-3 bg-black/60 backdrop-blur-sm border border-pink-500/40 rounded-xl p-3 hover:border-pink-500/70 transition-all duration-300 text-sm hover:bg-pink-600/20"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
                 >
-                  <TikTokIcon className="h-4 w-4 text-pink-400 flex-shrink-0" />
+                  <TikTokIcon className="h-5 w-5 text-pink-400 flex-shrink-0" />
                   <span className="text-white font-medium">@gli_fiori</span>
                 </a>
               </div>
@@ -615,125 +650,123 @@ function App() {
 
             {/* CTA Section */}
             <div className="text-center md:col-span-2 lg:col-span-1">
-              <div className="bg-gradient-to-br from-red-900/40 to-orange-900/30 backdrop-blur-xl border border-red-500/40 rounded-3xl p-6 lg:p-8 shadow-lg shadow-red-500/20">
-                <div className="mb-6">
-                  <div className="flex justify-center space-x-2 mb-4">
-                    <Flame className="h-5 w-5 text-red-400 animate-pulse" />
-                    <Flame className="h-5 w-5 text-red-400 animate-pulse delay-100" />
-                    <Flame className="h-5 w-5 text-red-400 animate-pulse delay-200" />
+              <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 lg:p-10 relative overflow-hidden">
+                <DiagonalStripes className="opacity-10" />
+                <div className="relative z-10">
+                  <div className="mb-8">
+                    <div className="flex justify-center space-x-2 mb-6">
+                      <Flame className="h-6 w-6 text-red-400 animate-pulse" />
+                      <Flame className="h-6 w-6 text-red-400 animate-pulse delay-100" />
+                      <Flame className="h-6 w-6 text-red-400 animate-pulse delay-200" />
+                    </div>
+                    <h4 className="text-2xl font-black text-white mb-4 tracking-wide uppercase">Don't Miss Out</h4>
+                    <p className="text-gray-400 text-sm mb-8 font-medium">Join us for our inaugural event</p>
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-4">Don't Miss Out</h4>
-                  <p className="text-gray-400 text-sm mb-6">Join us for our inaugural event</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <button 
-                    onClick={() => setShowTicketModal(true)}
-                    className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-6 rounded-xl font-bold hover:shadow-2xl hover:shadow-red-500/50 transform hover:scale-105 transition-all duration-300 border border-red-500/50"
-                  >
-                    {t.reserveSpot}
-                  </button>
                   
-                  <a 
-                    href="https://www.instagram.com/gli_fiori/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center space-x-2 border border-red-500/50 text-white py-3 px-6 rounded-xl hover:bg-red-600/20 transition-all duration-300 group"
-                  >
-                    <Instagram className="h-4 w-4" />
-                    <span>{t.visitStore}</span>
-                    <ExternalLink className="h-4 w-4 group-hover:rotate-45 transition-transform duration-300" />
-                  </a>
+                  <div className="space-y-4">
+                    <button 
+                      onClick={() => setShowTicketModal(true)}
+                      className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-4 px-8 rounded-xl font-black hover:shadow-2xl hover:shadow-red-500/30 transform hover:scale-105 transition-all duration-300 border border-red-500/50 tracking-wider uppercase"
+                    >
+                      {t.reserveSpot}
+                    </button>
+                    
+                    <a 
+                      href="https://www.instagram.com/gli_fiori/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center space-x-3 border border-white/20 text-white py-4 px-8 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase"
+                    >
+                      <Instagram className="h-5 w-5" />
+                      <span>{t.visitStore}</span>
+                      <ExternalLink className="h-5 w-5 group-hover:rotate-45 transition-transform duration-300" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-red-500/30 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-500 text-sm">
+          <div className="border-t border-white/10 pt-10">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+              <div className="text-gray-500 text-sm font-medium">
                 {t.copyright}
               </div>
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 text-gray-400 text-sm italic text-center">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                  <span>"{t.flowerQuote}"</span>
-                </div>
+              <div className="flex items-center space-x-3 text-gray-400 text-sm italic text-center">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="font-light">"{t.flowerQuote}"</span>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Decorative bottom elements */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
       </footer>
 
-      {/* Improved Mobile-Friendly Modal */}
+      {/* Modern Modal */}
       {showTicketModal && (
         <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-center justify-center">
-          {/* Modal Container - Improved Mobile Positioning */}
-          <div className="relative w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
-            {/* Modal Content - Better Mobile Scaling */}
-            <div className="bg-black/95 backdrop-blur-xl border border-red-500/50 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl shadow-red-500/30">
-              {/* Modal Header - Fixed at top */}
-              <div className="sticky top-0 bg-black/95 backdrop-blur-xl border-b border-red-500/30 p-6 sm:p-8 rounded-t-3xl">
+          <div className="relative w-full h-full flex items-center justify-center p-6 md:p-8">
+            <div className="bg-black/95 backdrop-blur-xl border border-white/20 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl relative">
+              <DiagonalStripes className="opacity-5" />
+              
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-8 rounded-t-3xl relative z-10">
                 <div className="text-center">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/40">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-600 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-8">
                     <Instagram className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t.reserveSpot}</h3>
-                  <p className="text-gray-400">{t.summerParty}</p>
+                  <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight uppercase">{t.reserveSpot}</h3>
+                  <p className="text-gray-400 font-medium tracking-wide">{t.summerParty}</p>
                 </div>
               </div>
 
-              {/* Modal Body - Scrollable */}
-              <div className="p-6 sm:p-8">
+              {/* Modal Body */}
+              <div className="p-8 relative z-10">
                 {/* Pricing Display */}
-                <div className="flex justify-center gap-8 mb-8">
+                <div className="flex justify-center gap-12 mb-10">
                   <div className="text-center">
-                    <div className="text-lg font-bold text-orange-400">{t.ladiesPrice}</div>
+                    <div className="text-xl font-black text-orange-400 tracking-wide">{t.ladiesPrice}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-lg font-bold text-red-400">{t.menPrice}</div>
+                    <div className="text-xl font-black text-red-400 tracking-wide">{t.menPrice}</div>
                   </div>
                 </div>
 
                 {/* Instructions */}
-                <div className="bg-red-600/20 backdrop-blur-sm border border-red-500/40 rounded-2xl p-6 sm:p-8 mb-8">
-                  <h4 className="font-bold text-white mb-6 text-lg flex items-center space-x-2">
-                    <Instagram className="h-5 w-5 text-red-400" />
-                    <span>{t.howToPurchase}</span>
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-10">
+                  <h4 className="font-black text-white mb-8 text-xl flex items-center space-x-3 tracking-wide uppercase">
+                    <Instagram className="h-6 w-6 text-red-400" />
+                    <span className="underline decoration-red-500 decoration-2 underline-offset-4">{t.howToPurchase}</span>
                   </h4>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">1</div>
-                      <p className="text-gray-300 text-sm">
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">1</div>
+                      <p className="text-gray-300 font-medium">
                         {t.dmInstagram}
                       </p>
                     </div>
                     <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">2</div>
-                      <p className="text-gray-300 text-sm">{t.ageRestriction}</p>
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">2</div>
+                      <p className="text-gray-300 font-medium">{t.ageRestriction}</p>
                     </div>
                     <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">3</div>
-                      <p className="text-gray-300 text-sm">{t.detailsAfterPayment}</p>
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">3</div>
+                      <p className="text-gray-300 font-medium">{t.detailsAfterPayment}</p>
                     </div>
                     <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">4</div>
-                      <p className="text-gray-300 text-sm">{t.groupDiscounts}</p>
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">4</div>
+                      <p className="text-gray-300 font-medium">{t.groupDiscounts}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Modal Footer - Fixed at bottom */}
-              <div className="sticky bottom-0 bg-black/95 backdrop-blur-xl border-t border-red-500/30 p-6 sm:p-8 rounded-b-3xl">
+              {/* Modal Footer */}
+              <div className="sticky bottom-0 bg-black/95 backdrop-blur-xl border-t border-white/10 p-8 rounded-b-3xl relative z-10">
                 <div className="flex gap-4">
                   <button 
                     onClick={() => setShowTicketModal(false)}
-                    className="flex-1 border border-red-500/60 text-gray-300 py-3 px-6 rounded-xl font-medium hover:bg-red-600/20 transition-all duration-300"
+                    className="flex-1 border border-white/20 text-gray-300 py-4 px-6 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 tracking-wide uppercase"
                   >
                     {t.close}
                   </button>
@@ -741,9 +774,9 @@ function App() {
                     href="https://www.instagram.com/gli_fiori/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-6 rounded-xl font-bold hover:shadow-2xl hover:shadow-red-500/50 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-2"
+                    className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-4 px-6 rounded-xl font-black hover:shadow-2xl hover:shadow-red-500/30 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-3 tracking-wide uppercase"
                   >
-                    <Instagram className="h-4 w-4" />
+                    <Instagram className="h-5 w-5" />
                     <span>{t.dmNow}</span>
                   </a>
                 </div>
@@ -752,13 +785,6 @@ function App() {
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes fadeInOut {
-          0% { opacity: 0; }
-          100% { opacity: 0.25; }
-        }
-      `}</style>
     </div>
   );
 }

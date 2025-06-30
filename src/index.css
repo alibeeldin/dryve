@@ -1,200 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 body {
   background: #000;
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Seductive Red Club Scrollbar */
+/* Modern Scrollbar Design */
 ::-webkit-scrollbar {
-  width: 16px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 12px;
-  border: 1px solid rgba(220, 38, 38, 0.3);
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, 
-    rgba(220, 38, 38, 0.9) 0%, 
-    rgba(239, 68, 68, 0.8) 25%, 
-    rgba(251, 146, 60, 0.7) 75%, 
-    rgba(252, 211, 77, 0.6) 100%
+    rgba(220, 38, 38, 0.8) 0%, 
+    rgba(239, 68, 68, 0.7) 50%, 
+    rgba(251, 146, 60, 0.6) 100%
   );
-  border-radius: 12px;
-  border: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, 
     rgba(220, 38, 38, 1) 0%, 
-    rgba(239, 68, 68, 1) 25%, 
-    rgba(251, 146, 60, 0.9) 75%, 
-    rgba(252, 211, 77, 0.8) 100%
+    rgba(239, 68, 68, 0.9) 50%, 
+    rgba(251, 146, 60, 0.8) 100%
   );
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(220, 38, 38, 0.7), 0 0 35px rgba(239, 68, 68, 0.5);
+  transform: scale(1.05);
 }
 
-::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, 
-    rgba(185, 28, 28, 1) 0%, 
-    rgba(220, 38, 38, 1) 25%, 
-    rgba(239, 68, 68, 1) 75%, 
-    rgba(251, 146, 60, 0.9) 100%
-  );
-  transform: scale(0.95);
-}
-
-/* Firefox Scrollbar - Seductive Red Theme */
+/* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(220, 38, 38, 0.9) rgba(0, 0, 0, 0.9);
+  scrollbar-color: rgba(220, 38, 38, 0.8) rgba(0, 0, 0, 0.95);
 }
 
-/* Smooth scrolling behavior */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for modal content */
-.modal-content::-webkit-scrollbar {
-  width: 12px;
+/* Custom font weights and styles */
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
 
-.modal-content::-webkit-scrollbar-track {
-  background: rgba(220, 38, 38, 0.1);
-  border-radius: 10px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, 
-    rgba(220, 38, 38, 0.8) 0%, 
-    rgba(239, 68, 68, 0.8) 100%
-  );
-  border-radius: 10px;
-  border: 1px solid rgba(220, 38, 38, 0.3);
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, 
-    rgba(220, 38, 38, 1) 0%, 
-    rgba(239, 68, 68, 1) 100%
-  );
-}
-
-/* Scrollbar animations - Seductive Red Glow */
-@keyframes seductiveScrollbarGlow {
-  0% { box-shadow: 0 0 10px rgba(220, 38, 38, 0.4); }
-  25% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
-  50% { box-shadow: 0 0 30px rgba(220, 38, 38, 0.8); }
-  75% { box-shadow: 0 0 20px rgba(251, 146, 60, 0.6); }
-  100% { box-shadow: 0 0 10px rgba(220, 38, 38, 0.4); }
-}
-
-::-webkit-scrollbar-thumb:hover {
-  animation: seductiveScrollbarGlow 2s ease-in-out infinite;
-}
-
-/* Hide scrollbar for specific elements if needed */
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Custom scrollbar for horizontal scroll - Seductive Red Theme */
-::-webkit-scrollbar:horizontal {
-  height: 16px;
-}
-
-::-webkit-scrollbar-track:horizontal {
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 12px;
-  border: 1px solid rgba(220, 38, 38, 0.3);
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-  background: linear-gradient(90deg, 
-    rgba(220, 38, 38, 0.9) 0%, 
-    rgba(239, 68, 68, 0.8) 25%, 
-    rgba(251, 146, 60, 0.7) 75%, 
-    rgba(252, 211, 77, 0.6) 100%
-  );
-  border-radius: 12px;
-  border: 2px solid rgba(0, 0, 0, 0.4);
-}
-
-::-webkit-scrollbar-thumb:horizontal:hover {
-  background: linear-gradient(90deg, 
-    rgba(220, 38, 38, 1) 0%, 
-    rgba(239, 68, 68, 1) 25%, 
-    rgba(251, 146, 60, 0.9) 75%, 
-    rgba(252, 211, 77, 0.8) 100%
-  );
-  box-shadow: 0 0 25px rgba(220, 38, 38, 0.8);
-}
-
-/* Seductive Red Club Aesthetic Styles */
-@keyframes seductivePulse {
-  0%, 100% { 
-    box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+/* Text animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  50% { 
-    box-shadow: 0 0 30px rgba(220, 38, 38, 0.9), 0 0 40px rgba(239, 68, 68, 0.7);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.seductive-glow {
-  animation: seductivePulse 3s ease-in-out infinite;
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Intense hover effects */
-.seductive-hover:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5);
-  transition: all 0.3s ease;
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
 }
 
-/* Dark ambient effect */
-@keyframes darkSeductiveGlow {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.45; }
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
 }
 
-.dark-seductive-effect {
-  animation: darkSeductiveGlow 4s ease-in-out infinite;
-}
-
-/* Seductive gradient text effects */
-.seductive-text {
+/* Modern gradient text */
+.gradient-text {
   background: linear-gradient(135deg, 
-    rgba(220, 38, 38, 1) 0%, 
-    rgba(239, 68, 68, 1) 25%, 
-    rgba(251, 146, 60, 1) 75%, 
-    rgba(252, 211, 77, 1) 100%
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 255, 255, 0.8) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Seductive button hover states */
-.seductive-button {
+/* Modern button effects */
+.modern-button {
   position: relative;
   overflow: hidden;
 }
 
-.seductive-button::before {
+.modern-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -203,148 +117,247 @@ html {
   height: 100%;
   background: linear-gradient(90deg, 
     transparent, 
-    rgba(255, 255, 255, 0.2), 
+    rgba(255, 255, 255, 0.1), 
     transparent
   );
-  transition: left 0.5s;
+  transition: left 0.6s;
 }
 
-.seductive-button:hover::before {
+.modern-button:hover::before {
   left: 100%;
 }
 
-/* Strobe-like effects for seductive club atmosphere */
-@keyframes seductiveStrobeEffect {
-  0%, 90%, 100% { opacity: 0.15; }
-  5%, 85% { opacity: 0.4; }
-  10%, 80% { opacity: 0.15; }
-  15%, 75% { opacity: 0.5; }
-  20%, 70% { opacity: 0.15; }
+/* Modern card hover effects */
+.modern-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.seductive-strobe-effect {
-  animation: seductiveStrobeEffect 4s ease-in-out infinite;
+.modern-card:hover {
+  transform: translateY(-8px);
 }
 
-/* Neon glow effects */
-.neon-red {
-  text-shadow: 0 0 8px rgba(220, 38, 38, 0.9), 0 0 15px rgba(220, 38, 38, 0.7), 0 0 20px rgba(220, 38, 38, 0.5);
+/* Backdrop blur support */
+.backdrop-blur-modern {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.neon-orange {
-  text-shadow: 0 0 8px rgba(251, 146, 60, 0.9), 0 0 15px rgba(251, 146, 60, 0.7), 0 0 20px rgba(251, 146, 60, 0.5);
+/* Modern focus states */
+.modern-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
 }
 
-/* Seductive club lighting effects */
-@keyframes seductiveClubLighting {
-  0% { 
-    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
-    filter: hue-rotate(0deg);
-  }
-  25% { 
-    box-shadow: 0 0 35px rgba(239, 68, 68, 0.5);
-    filter: hue-rotate(15deg);
+/* Text selection */
+::selection {
+  background: rgba(220, 38, 38, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(220, 38, 38, 0.3);
+  color: white;
+}
+
+/* Modern loading animation */
+@keyframes modernPulse {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(251, 146, 60, 0.6);
-    filter: hue-rotate(30deg);
-  }
-  75% { 
-    box-shadow: 0 0 40px rgba(252, 211, 77, 0.5);
-    filter: hue-rotate(45deg);
-  }
-  100% { 
-    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
-    filter: hue-rotate(0deg);
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 }
 
-.seductive-club-lighting {
-  animation: seductiveClubLighting 6s ease-in-out infinite;
+.modern-pulse {
+  animation: modernPulse 2s ease-in-out infinite;
 }
 
-/* Seductive club card effects */
-.seductive-club-card {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(220, 38, 38, 0.4);
+/* Modern glow effects */
+.modern-glow {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.modern-glow:hover {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+}
+
+/* Typography improvements */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Modern grid layouts */
+.modern-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Improved contrast for accessibility */
+.high-contrast {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.medium-contrast {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.low-contrast {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Modern border styles */
+.modern-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modern-border:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Improved mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-text-scale {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  
+  .mobile-heading-scale {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+}
+
+/* Modern spacing system */
+.space-modern-xs { margin: 0.5rem; }
+.space-modern-sm { margin: 1rem; }
+.space-modern-md { margin: 1.5rem; }
+.space-modern-lg { margin: 2rem; }
+.space-modern-xl { margin: 3rem; }
+
+/* Enhanced visual hierarchy */
+.hierarchy-1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; }
+.hierarchy-2 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; }
+.hierarchy-3 { font-size: 1.875rem; font-weight: 700; line-height: 1.3; }
+.hierarchy-4 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+.hierarchy-5 { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+
+/* Modern animations */
+@keyframes modernSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-modern-slide-in {
+  animation: modernSlideIn 0.6s ease-out forwards;
+}
+
+/* Enhanced button states */
+.button-modern {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.button-modern:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern form styles */
+.form-modern input,
+.form-modern textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  color: white;
   transition: all 0.3s ease;
 }
 
-.seductive-club-card:hover {
-  background: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(220, 38, 38, 0.7);
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
-  transform: translateY(-5px);
-}
-
-/* Intense focus states for seductive club theme */
-.seductive-club-input:focus {
+.form-modern input:focus,
+.form-modern textarea:focus {
   outline: none;
-  border-color: rgba(220, 38, 38, 0.9);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.4), 0 0 20px rgba(239, 68, 68, 0.5);
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
-/* Seductive club-style selection effects */
-.seductive-club-selected {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.4), rgba(239, 68, 68, 0.3));
-  border: 2px solid rgba(220, 38, 38, 0.9);
-  box-shadow: 0 0 25px rgba(220, 38, 38, 0.5);
+/* Modern table styles */
+.table-modern {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Seductive club button animations */
-@keyframes seductiveButtonPulse {
-  0% { 
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
-  }
-  70% { 
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
-  }
-  100% { 
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
-  }
+.table-modern th,
+.table-modern td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.seductive-button-pulse {
-  animation: seductiveButtonPulse 2s infinite;
+.table-modern th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
 }
 
-/* Seductive club modal effects */
-.seductive-modal-backdrop {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(15px);
+/* Modern modal styles */
+.modal-modern {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.seductive-modal-content {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
-  border: 1px solid rgba(220, 38, 38, 0.5);
-  box-shadow: 0 25px 50px rgba(220, 38, 38, 0.3);
+/* Enhanced accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-/* Seductive club loading animations */
-@keyframes seductiveLoading {
-  0% { 
-    transform: rotate(0deg);
-    border-color: rgba(220, 38, 38, 1) transparent transparent transparent;
+/* Modern print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
-  25% { 
-    border-color: rgba(239, 68, 68, 1) transparent transparent transparent;
-  }
-  50% { 
-    border-color: rgba(251, 146, 60, 1) transparent transparent transparent;
-  }
-  75% { 
-    border-color: rgba(252, 211, 77, 1) transparent transparent transparent;
-  }
-  100% { 
-    transform: rotate(360deg);
-    border-color: rgba(220, 38, 38, 1) transparent transparent transparent;
+  
+  body {
+    background: white !important;
+    color: black !important;
   }
 }
 
-.seductive-loading {
-  animation: seductiveLoading 1.5s linear infinite;
+/* Enhanced dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auto-dark {
+    background: #000;
+    color: #fff;
+  }
+}
+
+/* Modern reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
