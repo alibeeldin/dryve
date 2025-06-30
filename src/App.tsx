@@ -283,18 +283,26 @@ function App() {
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black"></div>
         
-        {/* Dynamic Background Patterns */}
+        {/* Enhanced Dynamic Background Patterns with Blue/Purple Accents */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-orange-600/8 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-600/6 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-600/12 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-600/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute top-1/6 right-1/3 w-64 h-64 bg-cyan-600/10 rounded-full blur-2xl animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/4 left-1/6 w-88 h-88 bg-indigo-600/8 rounded-full blur-3xl animate-pulse delay-300"></div>
+          <div className="absolute top-3/4 right-1/6 w-56 h-56 bg-violet-600/12 rounded-full blur-2xl animate-pulse delay-1200"></div>
         </div>
 
-        {/* Interactive Mouse Glow */}
+        {/* Enhanced Interactive Mouse Glow with Color Variations */}
         <div 
-          className="absolute w-96 h-96 rounded-full opacity-15 blur-3xl transition-all duration-1000 ease-out pointer-events-none"
+          className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl transition-all duration-1000 ease-out pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(220,38,38,0.3) 0%, rgba(239,68,68,0.15) 50%, transparent 70%)',
+            background: `radial-gradient(circle, 
+              rgba(59,130,246,0.4) 0%, 
+              rgba(147,51,234,0.3) 30%, 
+              rgba(220,38,38,0.25) 60%, 
+              transparent 80%
+            )`,
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
           }}
@@ -316,9 +324,9 @@ function App() {
             </div>
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg px-3 py-2 text-white hover:border-white/20 transition-all duration-300 group"
+              className="flex items-center space-x-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg px-3 py-2 text-white hover:border-blue-400/30 transition-all duration-300 group"
             >
-              <Globe className="h-3 w-3 text-red-400 group-hover:rotate-180 transition-transform duration-500" />
+              <Globe className="h-3 w-3 text-blue-400 group-hover:rotate-180 transition-transform duration-500" />
               <span className="text-xs font-bold tracking-wider uppercase">{language}</span>
             </button>
           </div>
@@ -330,9 +338,9 @@ function App() {
         <div className="fixed top-8 right-8 z-50">
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-3 bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl px-6 py-3 text-white hover:border-white/20 transition-all duration-300 group"
+            className="flex items-center space-x-3 bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl px-6 py-3 text-white hover:border-blue-400/30 transition-all duration-300 group"
           >
-            <Globe className="h-4 w-4 text-red-400 group-hover:rotate-180 transition-transform duration-500" />
+            <Globe className="h-4 w-4 text-blue-400 group-hover:rotate-180 transition-transform duration-500" />
             <span className="text-sm font-bold tracking-wider uppercase">{language}</span>
           </button>
         </div>
@@ -362,7 +370,7 @@ function App() {
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-orange-900/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-blue-900/10"></div>
           
           {/* Diagonal Stripes Overlay */}
           <DiagonalStripes />
@@ -401,7 +409,7 @@ function App() {
           {/* Event Date - Modern Style */}
           <AnimatedText delay={1000}>
             <div className="relative inline-block">
-              <div className="bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl">
+              <div className="bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl shadow-blue-500/10">
                 <div className="flex items-baseline space-x-2 justify-center">
                   <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white">01</span>
                   <span className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-300 uppercase tracking-wider">AUG</span>
@@ -427,10 +435,10 @@ function App() {
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           
-          {/* Event Details Grid - Modern Cards */}
+          {/* Event Details Grid - Enhanced Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-32">
             <AnimatedText delay={200}>
-              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-blue-400/30 transition-all duration-500 hover:bg-black/80 relative overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10">
                 <DiagonalStripes className="opacity-5 group-hover:opacity-10 transition-opacity duration-500" />
                 <div className="relative z-10">
                   <Clock className="h-8 w-8 text-red-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
@@ -443,8 +451,8 @@ function App() {
             </AnimatedText>
             
             <AnimatedText delay={400}>
-              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-purple-400/30 transition-all duration-500 hover:bg-black/80 relative overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <MapPin className="h-8 w-8 text-orange-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
                   <div className="text-xl lg:text-2xl font-black text-white mb-2 tracking-tight">{t.boulevardSaintLaurent}</div>
@@ -454,8 +462,8 @@ function App() {
             </AnimatedText>
             
             <AnimatedText delay={600}>
-              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-cyan-400/30 transition-all duration-500 hover:bg-black/80 relative overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/10">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-600/5 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <Users className="h-8 w-8 text-pink-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" />
                   <div className="text-3xl lg:text-4xl font-black text-white mb-2">🔥</div>
@@ -465,7 +473,7 @@ function App() {
             </AnimatedText>
             
             <AnimatedText delay={800}>
-              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-white/20 transition-all duration-500 hover:bg-black/80 relative overflow-hidden">
+              <div className="group bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center hover:border-red-400/30 transition-all duration-500 hover:bg-black/80 relative overflow-hidden hover:shadow-2xl hover:shadow-red-500/10">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="text-lg font-black text-red-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center space-x-2 tracking-wider uppercase">
@@ -511,8 +519,8 @@ function App() {
             </AnimatedText>
           </div>
 
-          {/* About Section with Video */}
-          <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden mb-20 relative">
+          {/* About Section with Video - Reduced Opacity */}
+          <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden mb-20 relative">
             {/* Background Video */}
             <div className="absolute inset-0 z-0">
               <video
@@ -523,16 +531,16 @@ function App() {
                 playsInline
                 className="w-full h-full object-cover opacity-0 transition-opacity duration-2000"
                 style={{
-                  filter: 'grayscale(10%) contrast(1.1) brightness(0.3) saturate(1.0)',
+                  filter: 'grayscale(10%) contrast(1.1) brightness(0.4) saturate(1.0)',
                 }}
                 onLoadedData={(e) => {
                   const video = e.target as HTMLVideoElement;
-                  video.style.opacity = '0.15';
+                  video.style.opacity = '0.35';
                 }}
               >
                 <source src="/vid.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
               <DiagonalStripes className="opacity-5" />
             </div>
             
@@ -555,7 +563,7 @@ function App() {
                     href="https://www.instagram.com/gli_fiori/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white px-8 lg:px-10 py-4 lg:py-5 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase"
+                    className="inline-flex items-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white px-8 lg:px-10 py-4 lg:py-5 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase hover:border-blue-400/30"
                   >
                     <Instagram className="h-6 w-6" />
                     <span>{t.visitStore}</span>
@@ -595,14 +603,14 @@ function App() {
               </p>
               <div className="flex justify-center lg:justify-start space-x-8">
                 <div className="text-center">
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300 hover:border-blue-400/30">
                     <MapPin className="h-8 w-8 text-red-400 mx-auto" />
                   </div>
                   <p className="text-white font-black text-sm uppercase tracking-wider">{t.montreal}</p>
                   <p className="text-gray-500 text-xs font-medium">QC, Canada</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-4 hover:bg-white/10 transition-all duration-300 hover:border-purple-400/30">
                     <Calendar className="h-8 w-8 text-orange-400 mx-auto" />
                   </div>
                   <p className="text-white font-black text-sm uppercase tracking-wider">{t.founded}</p>
@@ -620,7 +628,7 @@ function App() {
               <div className="space-y-4 max-w-sm mx-auto">
                 <a 
                   href="mailto:glifiori@hotmail.com" 
-                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-blue-400/30 transition-all duration-300 hover:bg-white/10"
                 >
                   <Mail className="h-5 w-5 text-red-400 flex-shrink-0" />
                   <span className="text-white font-medium truncate">glifiori@hotmail.com</span>
@@ -630,7 +638,7 @@ function App() {
                   href="https://www.instagram.com/gli_fiori/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-purple-400/30 transition-all duration-300 hover:bg-white/10"
                 >
                   <Instagram className="h-5 w-5 text-orange-400 flex-shrink-0" />
                   <span className="text-white font-medium">@gli_fiori</span>
@@ -640,7 +648,7 @@ function App() {
                   href="https://www.tiktok.com/@gli_fiori" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+                  className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-cyan-400/30 transition-all duration-300 hover:bg-white/10"
                 >
                   <TikTokIcon className="h-5 w-5 text-pink-400 flex-shrink-0" />
                   <span className="text-white font-medium">@gli_fiori</span>
@@ -675,7 +683,7 @@ function App() {
                       href="https://www.instagram.com/gli_fiori/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center space-x-3 border border-white/20 text-white py-4 px-8 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase"
+                      className="w-full inline-flex items-center justify-center space-x-3 border border-white/20 text-white py-4 px-8 rounded-xl hover:bg-white/10 transition-all duration-300 group font-bold tracking-wide uppercase hover:border-blue-400/30"
                     >
                       <Instagram className="h-5 w-5" />
                       <span>{t.visitStore}</span>
@@ -702,84 +710,82 @@ function App() {
         </div>
       </footer>
 
-      {/* Modern Modal */}
+      {/* Enhanced Mobile Modal */}
       {showTicketModal && (
         <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-center justify-center">
-          <div className="relative w-full h-full flex items-center justify-center p-6 md:p-8">
-            <div className="bg-black/95 backdrop-blur-xl border border-white/20 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl relative">
-              <DiagonalStripes className="opacity-5" />
-              
-              {/* Modal Header */}
-              <div className="sticky top-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-8 rounded-t-3xl relative z-10">
-                <div className="text-center">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-600 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-8">
-                    <Instagram className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight uppercase">{t.reserveSpot}</h3>
-                  <p className="text-gray-400 font-medium tracking-wide">{t.summerParty}</p>
+          <div className="relative w-full h-full flex flex-col">
+            {/* Fixed Modal Header */}
+            <div className="flex-shrink-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 md:p-8">
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 md:p-6 rounded-2xl w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-6 md:mb-8">
+                  <Instagram className="h-8 w-8 md:h-10 md:w-10 text-white" />
                 </div>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 md:mb-4 tracking-tight uppercase">{t.reserveSpot}</h3>
+                <p className="text-gray-400 font-medium tracking-wide">{t.summerParty}</p>
               </div>
+            </div>
 
-              {/* Modal Body */}
-              <div className="p-8 relative z-10">
+            {/* Scrollable Modal Body */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-6 md:p-8">
                 {/* Pricing Display */}
-                <div className="flex justify-center gap-12 mb-10">
+                <div className="flex justify-center gap-8 md:gap-12 mb-8 md:mb-10">
                   <div className="text-center">
-                    <div className="text-xl font-black text-orange-400 tracking-wide">{t.ladiesPrice}</div>
+                    <div className="text-lg md:text-xl font-black text-orange-400 tracking-wide">{t.ladiesPrice}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-black text-red-400 tracking-wide">{t.menPrice}</div>
+                    <div className="text-lg md:text-xl font-black text-red-400 tracking-wide">{t.menPrice}</div>
                   </div>
                 </div>
 
-                {/* Instructions */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-10">
-                  <h4 className="font-black text-white mb-8 text-xl flex items-center space-x-3 tracking-wide uppercase">
-                    <Instagram className="h-6 w-6 text-red-400" />
+                {/* Instructions - This is the scrollable section */}
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 mb-8 md:mb-10">
+                  <h4 className="font-black text-white mb-6 md:mb-8 text-lg md:text-xl flex items-center space-x-3 tracking-wide uppercase">
+                    <Instagram className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
                     <span className="underline decoration-red-500 decoration-2 underline-offset-4">{t.howToPurchase}</span>
                   </h4>
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">1</div>
-                      <p className="text-gray-300 font-medium">
+                  <div className="space-y-4 md:space-y-6 max-h-64 md:max-h-80 overflow-y-auto">
+                    <div className="flex items-start space-x-3 md:space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">1</div>
+                      <p className="text-gray-300 font-medium text-sm md:text-base">
                         {t.dmInstagram}
                       </p>
                     </div>
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">2</div>
-                      <p className="text-gray-300 font-medium">{t.ageRestriction}</p>
+                    <div className="flex items-start space-x-3 md:space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">2</div>
+                      <p className="text-gray-300 font-medium text-sm md:text-base">{t.ageRestriction}</p>
                     </div>
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">3</div>
-                      <p className="text-gray-300 font-medium">{t.detailsAfterPayment}</p>
+                    <div className="flex items-start space-x-3 md:space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">3</div>
+                      <p className="text-gray-300 font-medium text-sm md:text-base">{t.detailsAfterPayment}</p>
                     </div>
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">4</div>
-                      <p className="text-gray-300 font-medium">{t.groupDiscounts}</p>
+                    <div className="flex items-start space-x-3 md:space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-black mt-1 flex-shrink-0">4</div>
+                      <p className="text-gray-300 font-medium text-sm md:text-base">{t.groupDiscounts}</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Modal Footer */}
-              <div className="sticky bottom-0 bg-black/95 backdrop-blur-xl border-t border-white/10 p-8 rounded-b-3xl relative z-10">
-                <div className="flex gap-4">
-                  <button 
-                    onClick={() => setShowTicketModal(false)}
-                    className="flex-1 border border-white/20 text-gray-300 py-4 px-6 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 tracking-wide uppercase"
-                  >
-                    {t.close}
-                  </button>
-                  <a 
-                    href="https://www.instagram.com/gli_fiori/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-4 px-6 rounded-xl font-black hover:shadow-2xl hover:shadow-red-500/30 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-3 tracking-wide uppercase"
-                  >
-                    <Instagram className="h-5 w-5" />
-                    <span>{t.dmNow}</span>
-                  </a>
-                </div>
+            {/* Fixed Modal Footer */}
+            <div className="flex-shrink-0 bg-black/95 backdrop-blur-xl border-t border-white/10 p-6 md:p-8">
+              <div className="flex gap-3 md:gap-4">
+                <button 
+                  onClick={() => setShowTicketModal(false)}
+                  className="flex-1 border border-white/20 text-gray-300 py-3 md:py-4 px-4 md:px-6 rounded-xl font-bold hover:bg-white/10 transition-all duration-300 tracking-wide uppercase text-sm md:text-base"
+                >
+                  {t.close}
+                </button>
+                <a 
+                  href="https://www.instagram.com/gli_fiori/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 md:py-4 px-4 md:px-6 rounded-xl font-black hover:shadow-2xl hover:shadow-red-500/30 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-2 md:space-x-3 tracking-wide uppercase text-sm md:text-base"
+                >
+                  <Instagram className="h-4 w-4 md:h-5 md:w-5" />
+                  <span>{t.dmNow}</span>
+                </a>
               </div>
             </div>
           </div>
