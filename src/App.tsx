@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, MapPin, Clock, Users, Mail, Instagram, ExternalLink, Sparkles, Heart, Star, Globe, Flame, Zap, Music } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, Mail, Instagram, ExternalLink, Sparkles, Heart, Star, Globe, Flame, Zap, Music, PartyPopper, Crown } from 'lucide-react';
 
 type Language = 'en' | 'fr';
 
@@ -50,7 +50,7 @@ interface Content {
     lightAppetizers: string;
     liveEntertainment: string;
     secureSpot: string;
-    fromFootball: string;
+    ourStory: string;
     aboutDescription1: string;
     aboutDescription2: string;
     visitStore: string;
@@ -87,7 +87,7 @@ interface Content {
     lightAppetizers: string;
     liveEntertainment: string;
     secureSpot: string;
-    fromFootball: string;
+    ourStory: string;
     aboutDescription1: string;
     aboutDescription2: string;
     visitStore: string;
@@ -115,7 +115,7 @@ const content: Content = {
     inauguralEvent: "INAUGURAL EVENT",
     summerParty: "SUMMER PARTY",
     hostedBy: "Hosted by Gli Fiori",
-    heroDescription: "The ultimate end-of-summer celebration for Montreal's nightlife scene. Where elegance meets excitement in the city's most exclusive party experience.",
+    heroDescription: "The ultimate end-of-summer celebration for Montreal's CEGEP and university students. One last epic night before classes begin.",
     fiveHours: "Five Hours",
     exclusiveVenue: "Exclusive Venue",
     limitedTickets: "Limited Tickets",
@@ -127,9 +127,9 @@ const content: Content = {
     lightAppetizers: "Light Appetizers",
     liveEntertainment: "Live Entertainment",
     secureSpot: "SECURE YOUR SPOT",
-    fromFootball: "From Football to Nightlife",
-    aboutDescription1: "Gli Fiori started in 2024 organizing premium football events and tournaments across Montreal, bringing the Italian pristine way of playing to Canada. Our commitment to excellence and the beautiful game made us a respected name in Montreal's football community.",
-    aboutDescription2: "Now we're expanding into unforgettable nightlife experiences. The same passion, precision, and Italian elegance we bring to football, we're bringing to Montreal's entertainment scene.",
+    ourStory: "Our Story",
+    aboutDescription1: "Gli Fiori started in 2024 organizing premium events across Montreal, bringing people together through our passion for excellence and community. What began with sports events has evolved into creating unforgettable experiences.",
+    aboutDescription2: "Now we're bringing that same dedication to Montreal's nightlife scene. Our commitment to quality, attention to detail, and creating connections makes every Gli Fiori event something special.",
     visitStore: "Visit Our Instagram",
     reserveSpot: "Reserve Your Spot",
     howToPurchase: "How to Purchase Tickets:",
@@ -141,7 +141,7 @@ const content: Content = {
     dmNow: "DM on Instagram",
     copyright: "© 2025 Gli Fiori - Montreal, QC",
     followJourney: "Follow Our Journey",
-    premiumExperiences: "Premium Football Events & Unforgettable Nightlife Experiences",
+    premiumExperiences: "Premium Events & Unforgettable Nightlife Experiences",
     montreal: "Montreal",
     founded: "Founded",
     pricing: "Pricing",
@@ -152,7 +152,7 @@ const content: Content = {
     inauguralEvent: "ÉVÉNEMENT INAUGURAL",
     summerParty: "SUMMER PARTY",
     hostedBy: "Organisé par Gli Fiori",
-    heroDescription: "La célébration de fin d'été ultime pour la scène nocturne montréalaise. Où l'élégance rencontre l'excitation dans l'expérience de fête la plus exclusive de la ville.",
+    heroDescription: "La célébration de fin d'été ultime pour les étudiants CÉGEP et universitaires de Montréal. Une dernière soirée épique avant le début des cours.",
     fiveHours: "Cinq Heures",
     exclusiveVenue: "Lieu Exclusif",
     limitedTickets: "Billets Limités",
@@ -164,9 +164,9 @@ const content: Content = {
     lightAppetizers: "Amuse-Bouches",
     liveEntertainment: "Divertissement Live",
     secureSpot: "RÉSERVEZ VOTRE PLACE",
-    fromFootball: "Du Football à la Vie Nocturne",
-    aboutDescription1: "Gli Fiori a commencé en 2024 en organisant des événements de football premium et des tournois à travers Montréal, apportant la façon italienne pristine de jouer au Canada. Notre engagement envers l'excellence et le beau jeu nous a rendus un nom respecté dans la communauté footballistique montréalaise.",
-    aboutDescription2: "Maintenant, nous nous étendons vers des expériences nocturnes inoubliables. La même passion, précision et élégance italienne que nous apportons au football, nous l'apportons à la scène de divertissement montréalaise.",
+    ourStory: "Notre Histoire",
+    aboutDescription1: "Gli Fiori a commencé en 2024 en organisant des événements premium à travers Montréal, rassemblant les gens grâce à notre passion pour l'excellence et la communauté. Ce qui a commencé avec des événements sportifs a évolué vers la création d'expériences inoubliables.",
+    aboutDescription2: "Maintenant, nous apportons cette même dévotion à la scène nocturne montréalaise. Notre engagement envers la qualité, l'attention aux détails et la création de connexions fait de chaque événement Gli Fiori quelque chose de spécial.",
     visitStore: "Visitez Notre Instagram",
     reserveSpot: "Réservez Votre Place",
     howToPurchase: "Comment acheter des billets:",
@@ -178,7 +178,7 @@ const content: Content = {
     dmNow: "DM sur Instagram",
     copyright: "© 2025 Gli Fiori - Montréal, QC",
     followJourney: "Suivez Notre Parcours",
-    premiumExperiences: "Événements de Football Premium & Expériences Nocturnes Inoubliables",
+    premiumExperiences: "Événements Premium & Expériences Nocturnes Inoubliables",
     montreal: "Montréal",
     founded: "Fondé",
     pricing: "Tarification",
@@ -505,8 +505,8 @@ function App() {
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div>
                   <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center space-x-3">
-                    <span>{t.fromFootball}</span>
-                    <Music className="h-8 w-8 text-red-400 animate-pulse" />
+                    <span>{t.ourStory}</span>
+                    <Crown className="h-8 w-8 text-red-400 animate-pulse" />
                   </h2>
                   <p className="text-gray-300 leading-relaxed mb-6">
                     {t.aboutDescription1}
