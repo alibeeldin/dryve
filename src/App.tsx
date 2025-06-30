@@ -22,7 +22,7 @@ const GliFioriLogo = ({ className }: { className?: string }) => (
     <path d="m89.31,102.62c8.44,2.35,16.57,4.5,24.63,6.9,4.94,1.47,9.72,3.45,14.65,4.95,14.73,4.48,26.32,13.5,35.57,25.43,6.68,8.62,9.79,18.81,9.48,29.81-.15,5.32-9.29,14.19-14.52,14.12-1.37-.02-3.11-1.27-4.01-2.46-8.25-10.86-17.32-21.26-24.07-33-3.31-5.76-8.58-8.98-12.02-14.12-.59-.88-2.54-.84-3.86-1.23-.04,1.63-.74,3.67-.03,4.84,4.7,7.65,9.76,15.08,14.6,22.65,5.02,7.85,10.16,15.64,14.79,23.72,2.88,5.02,4.58,9.91,1.16,16.26-3.7,6.89-14.55,8.82-20.11,3.15-10.72-10.9-23.03-19.44-35.98-27.32-1.64-1-2.76-3.74-3.11-5.84-3.14-19.25-2.28-38.45,1.14-57.59.55-3.07,1.02-6.15,1.7-10.27Z"/>
     <path d="m357.45,381.72c-4.43-2.8-8.79-5.72-13.3-8.39-9.91-5.87-21.11-5.38-32.02-6.24-23.92-1.9-41.67-14.26-55.81-32.78-4.2-5.5-9.11-10.65-12.29-16.7-3.97-7.56-7.89-15.65-9.29-23.94-2.2-13.05-2.41-26.45-3.2-39.71-.35-5.81-.12-11.66-.07-17.49.07-7.8-1.69-14.86-7.85-20.29,9.82,3.4,14.51,11.4,18.99,20,8.71,16.73,11.82,35.26,17.45,52.95,4.43,13.93,12.26,25.51,21.86,35.87,5.89,6.35,13.24,11.54,20.52,16.36,13.98,9.26,28.5,17.71,42.55,26.87,5.11,3.33,9.54,7.71,14.29,11.61-.61.63-1.22,1.26-1.83,1.89Z"/>
     <path d="m163.79,65.1c19.99-2.62,39.82-7.89,60.24-3.22,6.2,1.42,7.84,2.86,7.02,8.63-1.48,10.33.61,20.19,3.2,30.04.28,1.08.52,2.17.86,3.61-8.1-5.63-15.81-10.99-23.52-16.34-.68-.47-1.42-1.17-2.15-1.2-1.65-.06-3.32.23-4.97.38.55,1.43.69,3.3,1.7,4.21,6.05,5.41,11.99,11.04,18.56,15.77,11.24,8.09,18.48,19.45,26.37,30.32,4.75,6.54,9.36,13.17,13.3,20.6-1.75-1.31-3.62-2.49-5.23-3.96-9.34-8.55-19.24-16.2-30.44-22.35-9.49-5.21-19.4-7.12-29.8-5.93-9.39,1.07-14.16-3.21-18.94-10.8-9.67-15.35-14.18-32.03-16.2-49.77Z"/>
-    <path d="m132.57,240.02c3.12,12.04,6.14,23.05,8.72,34.17.49,2.09-.14,5-1.34,6.81-3.28,4.96-7.23,9.47-10.69,14.32-.8,1.12-.7,2.89-1.02,4.36,1.64-.23,3.6.04,4.85-.78,3.75-2.45,7.24-5.29,10.78-8.04,2.49-1.94,4.43-1.75,6.13,1.05,4.31,7.09,8.83,14.06,12.92,21.28.56.99-.4,3.98-1.46,4.56-7.87,4.25-15.61,9.24-24.05,11.83-9.24,2.83-19.18,3.47-28.86,4.66-1.15.14-3.19-1.99-3.83-3.49-3.42-8.04-4.67-16.47-4.51-25.24.3-15.85,2.07-31.12,11.92-44.45,5.96-8.05,13.03-14.79,20.44-21.03Z"/>
+    <path d="m132.57,240.02c3.12,12.04,6.14,23.05,8.72,34.17.49,2.09-.14,5-1.34,6.81-3.28,4.96-7.23,9.47-10.69,14.32-.8,1.12-.7,2.89-1.02,4.36,1.64-.23,3.6.04,4.85-.78,3.75-2.45,7.24-5.29,10.78-8.04,2.49-1.94,4.43-1.75,6.13,1.05,4.31,7.09,8.83,14.06,12.92,21.28.56.99-.4,3.98-1.46,4.56-7.87,4.25-15.61,9.24-24.05,11.83-9.24,2.83-19.18,3.47-28.86,4.66-1.15.14-3.19-1.99-3.83-3.49-3.42-8.04-4.67-16.47-4.51-25.24.30-15.85,2.07-31.12,11.92-44.45,5.96-8.05,13.03-14.79,20.44-21.03Z"/>
     <path d="m431.64,86.3c-1.91.2-3.18.49-4.45.43-13.76-.63-27.19,1.65-40.62,4.3-3.96.78-8.23-.21-12.29.26-6.69.78-13.33,2.05-19.98,3.19-5.66.97-11.29,2.18-16.99,2.91-.91.12-2.71-1.62-3.01-2.78-1.97-7.73-3.79-15.52-5.29-23.35-.28-1.46.63-3.99,1.82-4.74,8.99-5.71,18.04-11.57,29.04-12.47,4.26-.35,8.7-.37,12.86.47,11.53,2.34,23.25,4.31,34.32,8.12,11.21,3.85,18.3,13.18,24.59,23.67Z"/>
     <path d="m374.32,48.78c20.32-6.66,40.43-10.82,60.71-.4,14.92,7.66,26.68,18.59,36.46,31.93,2.62,3.57,5,7.32,8.09,11.86-2.88-.34-4.63-.49-6.37-.75-10.02-1.5-20.05-2.91-30.04-4.62-1.9-.32-4.49-1.38-5.25-2.87-12.25-23.86-33.99-31.31-58.42-34.26-1.74-.21-3.45-.59-5.17-.89Z"/>
     <path d="m326.2,118.65c-5.57,5.22-10.66,9.96-15.71,14.73-19.7,18.65-31.4,41.83-38.16,67.75-1.15,4.42-2.74,7.93-6.69,10.97-5.45,4.2-9.86,9.75-15.33,14.39-.81-11.18-.62-21.94,3.15-32.41,5.6-15.52,16.26-27.06,28.05-38.17,10.96-10.33,20.92-21.79,30.72-33.28,3.83-4.5,7.48-6.15,13.97-3.99Z"/>
@@ -219,6 +219,28 @@ function App() {
     return () => video.removeEventListener('timeupdate', handleTimeUpdate);
   }, []);
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showTicketModal) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = '0';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    };
+  }, [showTicketModal]);
+
   const toggleLanguage = () => {
     setLanguage(prev => prev === 'en' ? 'fr' : 'en');
   };
@@ -353,6 +375,33 @@ function App() {
             </div>
             <div className="absolute -top-3 -right-3 w-6 h-6 bg-red-500 rounded-full animate-ping shadow-lg shadow-red-500/60"></div>
             <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-orange-500 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+
+        {/* Beautiful Section Transition Border */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          {/* Multi-layered gradient border */}
+          <div className="h-px bg-gradient-to-r from-transparent via-red-500/80 to-transparent"></div>
+          <div className="h-2 bg-gradient-to-r from-transparent via-red-500/40 to-transparent blur-sm"></div>
+          <div className="h-4 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-md"></div>
+          
+          {/* Animated glow effect */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-red-900/30 to-transparent animate-pulse"></div>
+          
+          {/* Decorative elements */}
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-4">
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-lg shadow-red-500/60"></div>
+            <div className="w-1 h-1 bg-orange-500 rounded-full animate-pulse delay-200 shadow-lg shadow-orange-500/60"></div>
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse delay-400 shadow-lg shadow-red-500/60"></div>
+          </div>
+          
+          {/* Subtle pattern overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-6 opacity-30">
+            <div className="h-full bg-gradient-to-r from-transparent via-red-500/10 to-transparent" 
+                 style={{
+                   backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(220,38,38,0.1) 2px, rgba(220,38,38,0.1) 4px)',
+                 }}>
+            </div>
           </div>
         </div>
       </div>
@@ -620,71 +669,85 @@ function App() {
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
       </footer>
 
-      {/* Ticket Modal - Simplified Instagram DM Version */}
+      {/* Improved Mobile-Friendly Modal */}
       {showTicketModal && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4">
-          <div className="bg-black/95 backdrop-blur-xl border border-red-500/50 rounded-3xl p-8 lg:p-12 max-w-lg w-full shadow-2xl shadow-red-500/30">
-            <div className="text-center mb-10">
-              <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/40">
-                <Instagram className="h-10 w-10 text-white" />
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-center justify-center">
+          {/* Modal Container - Improved Mobile Positioning */}
+          <div className="relative w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
+            {/* Modal Content - Better Mobile Scaling */}
+            <div className="bg-black/95 backdrop-blur-xl border border-red-500/50 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl shadow-red-500/30">
+              {/* Modal Header - Fixed at top */}
+              <div className="sticky top-0 bg-black/95 backdrop-blur-xl border-b border-red-500/30 p-6 sm:p-8 rounded-t-3xl">
+                <div className="text-center">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-600 p-4 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/40">
+                    <Instagram className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t.reserveSpot}</h3>
+                  <p className="text-gray-400">{t.summerParty}</p>
+                </div>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">{t.reserveSpot}</h3>
-              <p className="text-gray-400">{t.summerParty}</p>
-            </div>
 
-            {/* Pricing Display - Text Only */}
-            <div className="flex justify-center gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-lg font-bold text-orange-400">{t.ladiesPrice}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-red-400">{t.menPrice}</div>
-              </div>
-            </div>
+              {/* Modal Body - Scrollable */}
+              <div className="p-6 sm:p-8">
+                {/* Pricing Display */}
+                <div className="flex justify-center gap-8 mb-8">
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-orange-400">{t.ladiesPrice}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-red-400">{t.menPrice}</div>
+                  </div>
+                </div>
 
-            <div className="bg-red-600/20 backdrop-blur-sm border border-red-500/40 rounded-2xl p-6 lg:p-8 mb-8">
-              <h4 className="font-bold text-white mb-6 text-lg flex items-center space-x-2">
-                <Instagram className="h-5 w-5 text-red-400" />
-                <span>{t.howToPurchase}</span>
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">1</div>
-                  <p className="text-gray-300 text-sm">
-                    {t.dmInstagram}
-                  </p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">2</div>
-                  <p className="text-gray-300 text-sm">{t.ageRestriction}</p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">3</div>
-                  <p className="text-gray-300 text-sm">{t.detailsAfterPayment}</p>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">4</div>
-                  <p className="text-gray-300 text-sm">{t.groupDiscounts}</p>
+                {/* Instructions */}
+                <div className="bg-red-600/20 backdrop-blur-sm border border-red-500/40 rounded-2xl p-6 sm:p-8 mb-8">
+                  <h4 className="font-bold text-white mb-6 text-lg flex items-center space-x-2">
+                    <Instagram className="h-5 w-5 text-red-400" />
+                    <span>{t.howToPurchase}</span>
+                  </h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">1</div>
+                      <p className="text-gray-300 text-sm">
+                        {t.dmInstagram}
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">2</div>
+                      <p className="text-gray-300 text-sm">{t.ageRestriction}</p>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">3</div>
+                      <p className="text-gray-300 text-sm">{t.detailsAfterPayment}</p>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0 shadow-lg shadow-red-500/40">4</div>
+                      <p className="text-gray-300 text-sm">{t.groupDiscounts}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <button 
-                onClick={() => setShowTicketModal(false)}
-                className="flex-1 border border-red-500/60 text-gray-300 py-3 px-6 rounded-xl font-medium hover:bg-red-600/20 transition-all duration-300"
-              >
-                {t.close}
-              </button>
-              <a 
-                href="https://www.instagram.com/gli_fiori/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-6 rounded-xl font-bold hover:shadow-2xl hover:shadow-red-500/50 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-2"
-              >
-                <Instagram className="h-4 w-4" />
-                <span>{t.dmNow}</span>
-              </a>
+              {/* Modal Footer - Fixed at bottom */}
+              <div className="sticky bottom-0 bg-black/95 backdrop-blur-xl border-t border-red-500/30 p-6 sm:p-8 rounded-b-3xl">
+                <div className="flex gap-4">
+                  <button 
+                    onClick={() => setShowTicketModal(false)}
+                    className="flex-1 border border-red-500/60 text-gray-300 py-3 px-6 rounded-xl font-medium hover:bg-red-600/20 transition-all duration-300"
+                  >
+                    {t.close}
+                  </button>
+                  <a 
+                    href="https://www.instagram.com/gli_fiori/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-6 rounded-xl font-bold hover:shadow-2xl hover:shadow-red-500/50 transition-all text-center border border-red-500/50 flex items-center justify-center space-x-2"
+                  >
+                    <Instagram className="h-4 w-4" />
+                    <span>{t.dmNow}</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
