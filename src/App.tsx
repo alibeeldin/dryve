@@ -76,13 +76,28 @@ interface Content {
     fiveHours: string;
     exclusiveVenue: string;
     limitedTickets: string;
-    ladiesPrice: string;
-    menPrice: string;
+    ticketPrice: string;
+    doorPrice: string;
+    limitedOffer: string;
     whatsIncluded: string;
+    ticketPrice: string;
+    limitedPresaleOffers: string;
     welcomeCocktail: string;
     premiumBar: string;
     lightAppetizers: string;
     liveEntertainment: string;
+    premiumBundles: string;
+    bringItOn: string;
+    bringItOnDesc: string;
+    bringItOnPrice: string;
+    fuckUpCity: string;
+    fuckUpCityDesc: string;
+    fuckUpCityPrice: string;
+    bigBoss: string;
+    bigBossDesc: string;
+    bigBossPrice: string;
+    groupDiscount: string;
+    repostDiscount: string;
     secureSpot: string;
     ourStory: string;
     aboutDescription1: string;
@@ -113,13 +128,28 @@ interface Content {
     fiveHours: string;
     exclusiveVenue: string;
     limitedTickets: string;
-    ladiesPrice: string;
-    menPrice: string;
+    ticketPrice: string;
+    doorPrice: string;
+    limitedOffer: string;
     whatsIncluded: string;
+    ticketPrice: string;
+    limitedPresaleOffers: string;
     welcomeCocktail: string;
     premiumBar: string;
     lightAppetizers: string;
     liveEntertainment: string;
+    premiumBundles: string;
+    bringItOn: string;
+    bringItOnDesc: string;
+    bringItOnPrice: string;
+    fuckUpCity: string;
+    fuckUpCityDesc: string;
+    fuckUpCityPrice: string;
+    bigBoss: string;
+    bigBossDesc: string;
+    bigBossPrice: string;
+    groupDiscount: string;
+    repostDiscount: string;
     secureSpot: string;
     ourStory: string;
     aboutDescription1: string;
@@ -147,19 +177,33 @@ interface Content {
 const content: Content = {
   en: {
     inauguralEvent: "INAUGURAL EVENT",
-    summerParty: "SUMMER PARTY",
+    summerParty: "SUMMER CLOSING PARTY",
     hostedBy: "Hosted by Gli Fiori",
     heroDescription: "The ultimate end-of-summer celebration for Montreal's CEGEP and university students. One last epic night before classes begin.",
     fiveHours: "Five Hours",
     exclusiveVenue: "Exclusive Venue",
     limitedTickets: "Limited Tickets",
-    ladiesPrice: "Ladies - $15",
-    menPrice: "Men - $30",
+    ticketPrice: "$25",
+    doorPrice: "$40 - At Door",
+    limitedOffer: "Limited Time Offer",
     whatsIncluded: "What's Included:",
+    limitedPresaleOffers: "Limited presale offers available",
     welcomeCocktail: "Welcome Cocktail",
     premiumBar: "Premium Bar",
     lightAppetizers: "Light Appetizers",
     liveEntertainment: "Live Entertainment",
+    premiumBundles: "Premium Bundles",
+    bringItOn: "Bring It On",
+    bringItOnDesc: "2 Grey Goose bottles, coat check, 6 Red Bulls",
+    bringItOnPrice: "$700",
+    fuckUpCity: "Fuck Up The City",
+    fuckUpCityDesc: "3 Grey Goose bottles, 6 Red Bulls, free entry, coat check, snacks",
+    fuckUpCityPrice: "$1,000",
+    bigBoss: "Big Boss",
+    bigBossDesc: "3 Grey Goose, 2 free drinks per person, free entry, snacks, coat check, Nosecco champagne",
+    bigBossPrice: "$1,200",
+    groupDiscount: "Groups of 10+ get 1 free entry",
+    repostDiscount: "First 10 to repost get $5 off",
     secureSpot: "SECURE YOUR SPOT",
     ourStory: "Our Story",
     aboutDescription1: "Gli Fiori started in 2024 organizing premium events across Montreal, bringing people together through our passion for excellence and community. What began with sports events has evolved into creating unforgettable experiences.",
@@ -184,19 +228,33 @@ const content: Content = {
   },
   fr: {
     inauguralEvent: "ÉVÉNEMENT INAUGURAL",
-    summerParty: "SUMMER PARTY",
+    summerParty: "SUMMER CLOSING PARTY",
     hostedBy: "Organisé par Gli Fiori",
     heroDescription: "La célébration de fin d'été ultime pour les étudiants CÉGEP et universitaires de Montréal. Une dernière soirée épique avant le début des cours.",
     fiveHours: "Cinq Heures",
     exclusiveVenue: "Lieu Exclusif",
     limitedTickets: "Billets Limités",
-    ladiesPrice: "Dames - 15$",
-    menPrice: "Hommes - 30$",
+    ticketPrice: "25$",
+    doorPrice: "40$ - À la Porte",
+    limitedOffer: "Offre Limitée",
     whatsIncluded: "Ce qui est inclus:",
+    limitedPresaleOffers: "Offres de prévente limitées disponibles",
     welcomeCocktail: "Cocktail de Bienvenue",
     premiumBar: "Bar Premium",
     lightAppetizers: "Amuse-Bouches",
     liveEntertainment: "Divertissement Live",
+    premiumBundles: "Forfaits Premium",
+    bringItOn: "Bring It On",
+    bringItOnDesc: "2 bouteilles Grey Goose, vestiaire, 6 Red Bulls",
+    bringItOnPrice: "700$",
+    fuckUpCity: "Fuck Up The City",
+    fuckUpCityDesc: "3 bouteilles Grey Goose, 6 Red Bulls, entrée gratuite, vestiaire, collations",
+    fuckUpCityPrice: "1 000$",
+    bigBoss: "Big Boss",
+    bigBossDesc: "3 Grey Goose, 2 consommations gratuites par personne, entrée gratuite, collations, vestiaire, champagne Nosecco",
+    bigBossPrice: "1 200$",
+    groupDiscount: "Groupes de 10+ obtiennent 1 entrée gratuite",
+    repostDiscount: "Les 10 premiers à reposter obtiennent 5$ de rabais",
     secureSpot: "RÉSERVEZ VOTRE PLACE",
     ourStory: "Notre Histoire",
     aboutDescription1: "Gli Fiori a commencé en 2024 en organisant des événements premium à travers Montréal, rassemblant les gens grâce à notre passion pour l'excellence et la communauté. Ce qui a commencé avec des événements sportifs a évolué vers la création d'expériences inoubliables.",
@@ -411,7 +469,7 @@ function App() {
             <div className="relative inline-block">
               <div className="bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl shadow-blue-500/10">
                 <div className="flex items-baseline space-x-2 justify-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white">01</span>
+                  <span className="text-5xl sm:text-6xl md:text-7xl font-black text-white">15</span>
                   <span className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-300 uppercase tracking-wider">AUG</span>
                 </div>
                 <div className="text-lg text-red-400 tracking-[0.3em] uppercase font-bold mt-2">2025</div>
@@ -482,8 +540,8 @@ function App() {
                     <Zap className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm font-bold text-white tracking-wide">{t.ladiesPrice}</div>
-                    <div className="text-sm font-bold text-white tracking-wide">{t.menPrice}</div>
+                    <div className="text-2xl font-bold text-white tracking-wide">{t.ticketPrice}</div>
+                    <div className="text-xs text-gray-400 font-medium mt-2">{t.limitedPresaleOffers}</div>
                   </div>
                 </div>
               </div>
@@ -491,11 +549,13 @@ function App() {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center mb-32">
+          <div className="grid lg:grid-cols-2 gap-16 mb-32 items-center">
+            {/* Left side - What's Included */}
+            <div className="text-center lg:text-left">
             <AnimatedText delay={200}>
               <div className="mb-12">
                 <div className="text-gray-300 text-xl mb-6 font-medium tracking-wide">{t.whatsIncluded}</div>
-                <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6">
                   <span className="bg-red-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-red-500/30 text-red-200 hover:bg-red-600/30 transition-all duration-300 font-medium tracking-wide">{t.welcomeCocktail}</span>
                   <span className="bg-orange-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 text-orange-200 hover:bg-orange-600/30 transition-all duration-300 font-medium tracking-wide">{t.premiumBar}</span>
                   <span className="bg-pink-600/20 backdrop-blur-sm px-6 py-3 rounded-full border border-pink-500/30 text-pink-200 hover:bg-pink-600/30 transition-all duration-300 font-medium tracking-wide">{t.lightAppetizers}</span>
@@ -516,6 +576,99 @@ function App() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
+            </AnimatedText>
+            </div>
+
+            {/* Right side - Event Poster */}
+            <div className="text-center">
+              <AnimatedText delay={600}>
+                <div className="relative inline-block">
+                  <img 
+                    src="/poster.png" 
+                    alt="Summer Closing Party Poster" 
+                    className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border border-white/10 hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                </div>
+              </AnimatedText>
+            </div>
+          </div>
+
+          {/* Premium Bundles Section */}
+          <div className="mb-32">
+            <AnimatedText delay={200}>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight flex items-center justify-center space-x-4">
+                  <Crown className="h-8 w-8 text-yellow-400 animate-pulse" />
+                  <span className="underline decoration-yellow-500 decoration-4 underline-offset-8">{t.premiumBundles}</span>
+                  <Crown className="h-8 w-8 text-yellow-400 animate-pulse" />
+                </h2>
+                <p className="text-gray-400 text-lg font-light">Exclusive VIP experiences for groups</p>
+              </div>
+            </AnimatedText>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <AnimatedText delay={400}>
+                <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-xl border border-purple-500/30 rounded-2xl p-8 text-center hover:border-purple-400/50 transition-all duration-500 hover:bg-gradient-to-br hover:from-purple-900/40 hover:to-pink-900/40 relative overflow-hidden">
+                  <DiagonalStripes className="opacity-5" />
+                  <div className="relative z-10">
+                    <div className="text-2xl font-black text-purple-300 mb-4 tracking-wide uppercase">{t.bringItOn}</div>
+                    <p className="text-gray-300 text-sm mb-6 leading-relaxed">{t.bringItOnDesc}</p>
+                    <div className="text-3xl font-black text-white mb-4">{t.bringItOnPrice}</div>
+                    <div className="text-xs text-purple-400 font-medium">Perfect for small groups</div>
+                  </div>
+                </div>
+              </AnimatedText>
+
+              <AnimatedText delay={600}>
+                <div className="bg-gradient-to-br from-red-900/30 to-orange-900/30 backdrop-blur-xl border border-red-500/30 rounded-2xl p-8 text-center hover:border-red-400/50 transition-all duration-500 hover:bg-gradient-to-br hover:from-red-900/40 hover:to-orange-900/40 relative overflow-hidden transform hover:scale-105">
+                  <DiagonalStripes className="opacity-5" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full animate-ping"></div>
+                  <div className="relative z-10">
+                    <div className="text-2xl font-black text-red-300 mb-4 tracking-wide uppercase">{t.fuckUpCity}</div>
+                    <p className="text-gray-300 text-sm mb-6 leading-relaxed">{t.fuckUpCityDesc}</p>
+                    <div className="text-3xl font-black text-white mb-4">{t.fuckUpCityPrice}</div>
+                    <div className="text-xs text-red-400 font-medium">Most Popular Choice</div>
+                  </div>
+                </div>
+              </AnimatedText>
+
+              <AnimatedText delay={800}>
+                <div className="bg-gradient-to-br from-yellow-900/30 to-amber-900/30 backdrop-blur-xl border border-yellow-500/30 rounded-2xl p-8 text-center hover:border-yellow-400/50 transition-all duration-500 hover:bg-gradient-to-br hover:from-yellow-900/40 hover:to-amber-900/40 relative overflow-hidden">
+                  <DiagonalStripes className="opacity-5" />
+                  <div className="relative z-10">
+                    <div className="text-2xl font-black text-yellow-300 mb-4 tracking-wide uppercase flex items-center justify-center space-x-2">
+                      <Crown className="h-6 w-6" />
+                      <span>{t.bigBoss}</span>
+                    </div>
+                    <p className="text-gray-300 text-sm mb-6 leading-relaxed">{t.bigBossDesc}</p>
+                    <div className="text-3xl font-black text-white mb-4">{t.bigBossPrice}</div>
+                    <div className="text-xs text-yellow-400 font-medium">Ultimate VIP Experience</div>
+                  </div>
+                </div>
+              </AnimatedText>
+            </div>
+
+            {/* Special Offers */}
+            <AnimatedText delay={1000}>
+              <div className="mt-12 text-center">
+                <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto">
+                  <h3 className="text-2xl font-black text-white mb-6 flex items-center justify-center space-x-3">
+                    <Sparkles className="h-6 w-6 text-green-400 animate-pulse" />
+                    <span className="underline decoration-green-500 decoration-2 underline-offset-4">Special Offers</span>
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-center space-x-3 text-green-400 font-bold">
+                      <Users className="h-5 w-5" />
+                      <span>{t.groupDiscount}</span>
+                    </div>
+                    <div className="flex items-center justify-center space-x-3 text-blue-400 font-bold">
+                      <Instagram className="h-5 w-5" />
+                      <span>{t.repostDiscount}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </AnimatedText>
           </div>
 
@@ -712,8 +865,8 @@ function App() {
 
       {/* Enhanced Mobile Modal */}
       {showTicketModal && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-center justify-center">
-          <div className="relative w-full h-full flex flex-col">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-center justify-center p-4">
+          <div className="relative w-full max-w-2xl h-full max-h-[90vh] flex flex-col bg-black/90 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden">
             {/* Fixed Modal Header */}
             <div className="flex-shrink-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 md:p-8">
               <div className="text-center">
@@ -729,12 +882,10 @@ function App() {
             <div className="flex-1 overflow-y-auto">
               <div className="p-6 md:p-8">
                 {/* Pricing Display */}
-                <div className="flex justify-center gap-8 md:gap-12 mb-8 md:mb-10">
+                <div className="text-center mb-8 md:mb-10">
                   <div className="text-center">
-                    <div className="text-lg md:text-xl font-black text-orange-400 tracking-wide">{t.ladiesPrice}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-lg md:text-xl font-black text-red-400 tracking-wide">{t.menPrice}</div>
+                    <div className="text-3xl md:text-4xl font-black text-red-400 tracking-wide mb-2">{t.ticketPrice}</div>
+                    <div className="text-sm text-gray-400 font-medium">{t.limitedPresaleOffers}</div>
                   </div>
                 </div>
 
