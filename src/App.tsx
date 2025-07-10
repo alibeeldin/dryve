@@ -780,11 +780,11 @@ function App() {
               </h4>
               <div className="space-y-4 max-w-sm mx-auto">
                 <a 
-                  href="mailto:glifiori@hotmail.com" 
+                  href="mailto:info@glifiori.club" 
                   className="group flex items-center justify-center space-x-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:border-blue-400/30 transition-all duration-300 hover:bg-white/10"
                 >
                   <Mail className="h-5 w-5 text-red-400 flex-shrink-0" />
-                  <span className="text-white font-medium truncate">glifiori@hotmail.com</span>
+                  <span className="text-white font-medium truncate">info@glifiori.club</span>
                 </a>
                 
                 <a 
