@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+        'oswald': ['Oswald', 'sans-serif'],
       },
       fontWeight: {
         'thin': '100',
@@ -25,8 +26,8 @@ export default {
         'wide': '0.025em',
         'wider': '0.05em',
         'widest': '0.1em',
-        'ultra-wide': '0.2em',
-        'mega-wide': '0.3em',
+        'ultra-wide': '0.15em',
+        'mega-wide': '0.2em',
       },
       lineHeight: {
         'none': '1',
@@ -58,6 +59,7 @@ export default {
         'in-circ': 'cubic-bezier(0.6, 0.04, 0.98, 0.335)',
         'out-circ': 'cubic-bezier(0.075, 0.82, 0.165, 1)',
         'in-out-circ': 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        'alcatraz': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       },
       spacing: {
         '18': '4.5rem',
@@ -75,13 +77,16 @@ export default {
         'glow-lg': '0 0 30px rgba(220, 38, 38, 0.4)',
         'glow-xl': '0 0 40px rgba(220, 38, 38, 0.5)',
         'inner-glow': 'inset 0 0 20px rgba(220, 38, 38, 0.2)',
+        'alcatraz': '0 15px 35px rgba(0, 0, 0, 0.3)',
+        'alcatraz-lg': '0 20px 40px rgba(0, 0, 0, 0.4)',
       },
       textShadow: {
         'sm': '0 1px 2px rgba(0, 0, 0, 0.5)',
         'md': '0 2px 4px rgba(0, 0, 0, 0.5)',
         'lg': '0 4px 8px rgba(0, 0, 0, 0.5)',
         'xl': '0 8px 16px rgba(0, 0, 0, 0.5)',
-        'glow': '0 0 10px rgba(220, 38, 38, 0.8)',
+        'glow': '0 0 20px rgba(220, 38, 38, 0.8)',
+        'glow-white': '0 0 20px rgba(255, 255, 255, 0.3)',
       },
     },
   },
@@ -101,7 +106,10 @@ export default {
           textShadow: '0 8px 16px rgba(0, 0, 0, 0.5)',
         },
         '.text-shadow-glow': {
-          textShadow: '0 0 10px rgba(220, 38, 38, 0.8)',
+          textShadow: '0 0 20px rgba(220, 38, 38, 0.8)',
+        },
+        '.text-shadow-glow-white': {
+          textShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
         },
         '.text-shadow-none': {
           textShadow: 'none',
